@@ -1,7 +1,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let networkInterface = NetworkInterface(hostname: "http://localhost:3000")
+    let networkInterface = NetworkInterface(hostname: "http://48afd263.ngrok.io")
     let voice = RobotVoiceOutput()
 
     let locationSensor = LocationSensor()
