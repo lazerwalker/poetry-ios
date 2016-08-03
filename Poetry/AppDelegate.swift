@@ -1,11 +1,4 @@
-//
-//  AppDelegate.swift
-//  Poetry
-//
-//  Created by Mike Lazer-Walker on 8/2/16.
-//  Copyright © 2016 Mike Lazer-Walker. All rights reserved.
-//
-
+import AVFoundation
 import UIKit
 
 @UIApplicationMain
@@ -15,7 +8,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        let session = AVAudioSession.sharedInstance()
+        try! session.setCategory(AVAudioSessionCategoryPlayback)       
+
         return true
     }
 

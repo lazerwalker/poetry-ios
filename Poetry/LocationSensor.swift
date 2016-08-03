@@ -17,7 +17,7 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
         let status = CLLocationManager.authorizationStatus()
         if status == .NotDetermined {
             manager.requestWhenInUseAuthorization()
-        } else if status == .AuthorizedWhenInUse {
+        } else if status == .AuthorizedAlways {
             startLocationUpdates()
         }
     }
@@ -48,7 +48,7 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager,
                          didChangeAuthorizationStatus status: CLAuthorizationStatus)
     {
-        if running && status == .AuthorizedWhenInUse {
+        if running && status == .AuthorizedAlways {
             startLocationUpdates()
         }
     }
