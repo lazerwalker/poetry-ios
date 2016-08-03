@@ -12,6 +12,7 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
 
     func speak(text:String) {
         let utterance = AVSpeechUtterance(string:text)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
         synthesizer.speakUtterance(utterance)
     }
 
