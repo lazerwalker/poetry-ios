@@ -1,12 +1,22 @@
 PODS:
   - Alamofire (3.4.1)
+  - ForecastIO (2.1.1)
+  - Keys (1.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
+  - ForecastIO (~> 2.1)
+  - Keys (from `Pods/CocoaPodsKeys`)
+
+EXTERNAL SOURCES:
+  Keys:
+    :path: Pods/CocoaPodsKeys
 
 SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  ForecastIO: a195c8ec7bd3f23ed856fce1bbf2f141abc45dc8
+  Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
 
-PODFILE CHECKSUM: a272db538828b02e1b7afbc11c4e93829d9ac478
+PODFILE CHECKSUM: ce3e40e49252e2797b986eec2e09ddafce8148e0
 
 COCOAPODS: 1.0.1
