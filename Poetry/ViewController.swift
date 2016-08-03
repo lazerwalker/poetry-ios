@@ -9,10 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let networkInterface = NetworkInterface(hostname: "http://localhost:3000")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        networkInterface.fetchPoetryWithText("This is", temperature: 0.4) { (result) in
+            print(result)
+        }
     }
 
     override func didReceiveMemoryWarning() {
