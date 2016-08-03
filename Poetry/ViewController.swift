@@ -14,16 +14,12 @@ class ViewController: UIViewController {
         running = true
         fetchPoetry()
 
-        var fetchedWeather = false
         locationSensor.onLocationChange = { location in
             print(location)
             self.weatherSensor.location = location.coordinate
-            if (!fetchedWeather) {
-                self.weatherSensor.getWeather({ (forecast) in
-                    print(forecast)
-                    fetchedWeather = true
-                })
-            }
+            self.weatherSensor.getWeather({ (forecast) in
+                print(forecast)
+            })
         }
 
         locationSensor.start()
