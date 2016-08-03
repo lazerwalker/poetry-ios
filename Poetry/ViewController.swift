@@ -10,12 +10,26 @@ import UIKit
 
 class ViewController: UIViewController {
     let networkInterface = NetworkInterface(hostname: "http://localhost:3000")
+    let voice = RobotVoiceOutput()
+
+    var running = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        running = true
+        fetchPoetry()
+    }
 
-        networkInterface.fetchPoetryWithText("This is", temperature: 0.4) { (result) in
-            print(result)
+    func fetchPoetry() {
+        networkInterface.fetchPoetryWithText("I wonder if", temperature: 0.4, callback: poetryHandler)
+    }
+
+    func poetryHandler(result:String) {
+        print(result)
+        self.voice.speak(result)
+
+        if running {
+            fetchPoetry()
         }
     }
 
