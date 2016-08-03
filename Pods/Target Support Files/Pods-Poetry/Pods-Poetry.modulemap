@@ -1,6 +1,0 @@
-framework module Pods_Poetry {
-  umbrella header "Pods-Poetry-umbrella.h"
-
-  export *
-  module * { export * }
-}
