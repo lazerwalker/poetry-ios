@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     let networkInterface = NetworkInterface(hostname: "http://localhost:3000")
     let voice = RobotVoiceOutput()
 
+    var previousSentence:String?
     var running = false
 
     override func viewDidLoad() {
@@ -21,12 +22,29 @@ class ViewController: UIViewController {
     }
 
     func fetchPoetry() {
-        networkInterface.fetchPoetryWithText("I wonder if", temperature: 0.4, callback: poetryHandler)
+        var text:String = "Today is when"
+        if let previousSentence = previousSentence {
+            text = previousSentence
+        }
+        networkInterface.fetchPoetryWithText(text, temperature: 0.4, callback: poetryHandler)
     }
 
     func poetryHandler(result:String) {
-        print(result)
-        self.voice.speak(result)
+        var sentence = result
+        print(sentence)
+        let lines = result.componentsSeparatedByString("\n")
+        let firstLine = lines[0]
+        let lastLine = lines[lines.count - 2]
+
+        if let previousSentence = previousSentence {
+            if firstLine.containsString(previousSentence) {
+                sentence = sentence.stringByReplacingOccurrencesOfString(previousSentence, withString: "")
+                print("MODIFIED")
+            }
+        }
+        previousSentence = lastLine
+
+        self.voice.speak(sentence)
 
         if running {
             fetchPoetry()
