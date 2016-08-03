@@ -6,6 +6,7 @@ class ViewController: UIViewController {
 
     let locationSensor = LocationSensor()
     let weatherSensor = WeatherSensor()
+    let timeSensor = TimeSensor()
 
     var running = false
 
@@ -13,6 +14,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         running = true
         fetchPoetry()
+
+        print(timeSensor.isWeekday())
+        print(timeSensor.timeOfDay())
 
         locationSensor.onLocationChange = { location in
             print(location)
