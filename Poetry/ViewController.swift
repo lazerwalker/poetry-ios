@@ -1,16 +1,9 @@
-//
-//  ViewController.swift
-//  Poetry
-//
-//  Created by Mike Lazer-Walker on 8/2/16.
-//  Copyright © 2016 Mike Lazer-Walker. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
     let networkInterface = NetworkInterface(hostname: "http://localhost:3000")
     let voice = RobotVoiceOutput()
+    let locationSensor = LocationSensor()
 
     var running = false
 
@@ -18,6 +11,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         running = true
         fetchPoetry()
+
+        locationSensor.onLocationChange = { location in
+            print(location)
+        }
+        locationSensor.start()
     }
 
     func fetchPoetry() {

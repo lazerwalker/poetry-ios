@@ -15,6 +15,7 @@
 		C6DEAE911D5129A400C2A14D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6DEAE8F1D5129A400C2A14D /* LaunchScreen.storyboard */; };
 		C6DEAE991D5188DA00C2A14D /* NetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE981D5188DA00C2A14D /* NetworkInterface.swift */; };
 		C6DEAE9B1D51941400C2A14D /* RobotVoiceOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE9A1D51941400C2A14D /* RobotVoiceOutput.swift */; };
+		C6DEAE9D1D52915E00C2A14D /* LocationSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE9C1D52915E00C2A14D /* LocationSensor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		C6DEAE921D5129A400C2A14D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6DEAE981D5188DA00C2A14D /* NetworkInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkInterface.swift; sourceTree = "<group>"; };
 		C6DEAE9A1D51941400C2A14D /* RobotVoiceOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotVoiceOutput.swift; sourceTree = "<group>"; };
+		C6DEAE9C1D52915E00C2A14D /* LocationSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSensor.swift; sourceTree = "<group>"; };
 		C91C3CA4989DBA653D87CDD7 /* Pods_Poetry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poetry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,6 +75,7 @@
 		C6DEAE851D5129A400C2A14D /* Poetry */ = {
 			isa = PBXGroup;
 			children = (
+				C6DEAE9E1D52916100C2A14D /* Sensors */,
 				C6DEAE861D5129A400C2A14D /* AppDelegate.swift */,
 				C6DEAE881D5129A400C2A14D /* ViewController.swift */,
 				C6DEAE8A1D5129A400C2A14D /* Main.storyboard */,
@@ -83,6 +86,14 @@
 				C6DEAE9A1D51941400C2A14D /* RobotVoiceOutput.swift */,
 			);
 			path = Poetry;
+			sourceTree = "<group>";
+		};
+		C6DEAE9E1D52916100C2A14D /* Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				C6DEAE9C1D52915E00C2A14D /* LocationSensor.swift */,
+			);
+			name = Sensors;
 			sourceTree = "<group>";
 		};
 		E71D65A187EC6D18AE8D5A05 /* Pods */ = {
@@ -218,6 +229,7 @@
 			files = (
 				C6DEAE891D5129A400C2A14D /* ViewController.swift in Sources */,
 				C6DEAE991D5188DA00C2A14D /* NetworkInterface.swift in Sources */,
+				C6DEAE9D1D52915E00C2A14D /* LocationSensor.swift in Sources */,
 				C6DEAE9B1D51941400C2A14D /* RobotVoiceOutput.swift in Sources */,
 				C6DEAE871D5129A400C2A14D /* AppDelegate.swift in Sources */,
 			);
