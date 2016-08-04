@@ -14,10 +14,17 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
         let utterance = AVSpeechUtterance(string:text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
 
-        let pitchModulator = (Float(arc4random_uniform(30))/100.0 - 0.15)
-        utterance.pitchMultiplier = 1.0 + pitchModulator
+        func randomNumberNear(start:Float, within:Float) -> Float {
+            let modifier = (Float(arc4random_uniform(UInt32(within * 100 * 2)))/100.0 - within)
+            return start + modifier
+        }
 
-        print("Playing at pitch \(utterance.pitchMultiplier)")
+        utterance.pitchMultiplier = randomNumberNear(1.0, within: 0.15)
+
+        let rateSpread = (AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) / 8
+        utterance.rate = randomNumberNear(AVSpeechUtteranceDefaultSpeechRate, within: rateSpread)
+
+        print("Playing at pitch \(utterance.pitchMultiplier), rate \(utterance.rate)")
         synthesizer.speakUtterance(utterance)
     }
 
