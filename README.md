@@ -8,15 +8,15 @@ More info coming soon.
 
 1. Clone this repo
 
-2a. (`gem install cocoapods cocoapods-keys`)
+2 `bundle install` (can skip if you already have both `cocoapods` and `cocoapods-keys` installed)
 
-2b. `pod install`
+3. `bundle exec pod install` (can omit `bundle exec` if not using Bundler)
 
-3. `cp Poetry/config.plist.example Poetry/config.plist`
+4. `cp Poetry/config.plist.example Poetry/config.plist`
 
-4. Swap your server URL in for `serverRoot` value in the plist.
+5. Swap your server URL in for `serverRoot` value in the plist.
 
-5. Open `Poetry.xcworkspace`.
+6. Open `Poetry.xcworkspace`.
 
 Currently, this requires you to be running my poetry server, which isn't on GitHub yet (for relatively mundane reasons).
 
