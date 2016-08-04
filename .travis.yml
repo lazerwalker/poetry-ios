@@ -1,0 +1,11 @@
+language: swift
+cache: cocoapods
+xcode_workspace: Poetry.xcworkspace
+xcode_scheme: Poetry
+xcode_sdk: iphonesimulator
+
+before_install:
+  - bundle install
+
+  - pod keys set ForecastIOAPIKey "ForecastIOAPIKey" Poetrry
+  - cp Poetry/config.plist.example Poetry/config.plist

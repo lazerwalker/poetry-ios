@@ -1,5 +1,8 @@
 # Generative Poetry Walk
 
+[![CI Status](http://img.shields.io/travis/lazerwalker/poetry-ios.svg?style=flat)](https://travis-ci.org/lazerwalker/poetry-ios)
+
+
 This is a work-in-progress experiment for a generative location-based poetry walk. It combines a generative poetry engine (currently using [char-rnn](https://github.com/karpathy/char-rnn) running on a remote server) with speech synthesis, music synthesis and various sensor data as inputs.
 
 More info coming soon.
