@@ -9,6 +9,7 @@ before_install:
   - rvm use 2.2.2
 
   - bundle install
-
+  
+  - pod repo update
   - pod keys set ForecastIOAPIKey "ForecastIOAPIKey" Poetry
   - cp Poetry/config.plist.example Poetry/config.plist
