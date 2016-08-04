@@ -1,7 +1,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    let networkInterface = NetworkInterface(hostname: "http://48afd263.ngrok.io")
+    var networkInterface:NetworkInterface?
     let voice = RobotVoiceOutput()
 
     let locationSensor = LocationSensor()
@@ -13,6 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         running = true
+
+        if let config = Config() {
+            networkInterface = NetworkInterface(hostname: config.serverRoot)
+        }
+
         fetchPoetry()
 
         print(timeSensor.isWeekday())
@@ -30,7 +35,7 @@ class ViewController: UIViewController {
     }
 
     func fetchPoetry() {
-        networkInterface.fetchPoetryWithText("I wonder if", temperature: 0.4, callback: poetryHandler)
+        networkInterface?.fetchPoetryWithText("I wonder if", temperature: 0.4, callback: poetryHandler)
     }
 
     func poetryHandler(result:String) {
