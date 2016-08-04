@@ -5,7 +5,9 @@ xcode_scheme: Poetry
 xcode_sdk: iphonesimulator
 
 before_install:
+  - rvm install 2.2.1
   - rvm use 2.2.1
+  
   - bundle install
 
   - pod keys set ForecastIOAPIKey "ForecastIOAPIKey" Poetry
