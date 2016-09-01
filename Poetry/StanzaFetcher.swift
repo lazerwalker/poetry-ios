@@ -21,7 +21,12 @@ struct StanzaFetcher {
     // TODO: length is not used
     static func fetchWithPrimetext(primetext:String, temperature:Int, length:Int) -> [Stanza] {
         if let db = StanzaFetcher.connectionToPoetryDB() {
-            let query = table.filter(self.primetext == primetext && self.temperature == temperature)
+            let query = table
+                .filter(self.primetext == primetext)
+                .filter(self.temperature == temperature)
+                .order(Expression<Int>.random())
+                .limit(1)
+
             let items = try! db.prepare(query)
             return items.map({ (item) in
                 return Stanza(text: item[text], primetext: primetext, temperature: temperature)

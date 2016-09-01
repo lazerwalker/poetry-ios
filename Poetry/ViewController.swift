@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     var running = false
 
     override func viewDidLoad() {
-        print(StanzaFetcher.fetchWithPrimetext("This is how the world ends", temperature: 40, length: 20))
+        print(StanzaFetcher.fetchWithPrimetext("The sun shone", temperature: 40, length: 20))
 
         super.viewDidLoad()
         running = true
