@@ -2,11 +2,13 @@ PODS:
   - Alamofire (3.4.1)
   - ForecastIO (2.1.1)
   - Keys (1.0.0)
+  - SQLite.swift (0.10.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
   - ForecastIO (~> 2.1)
   - Keys (from `Pods/CocoaPodsKeys`)
+  - SQLite.swift (~> 0.10)
 
 EXTERNAL SOURCES:
   Keys:
@@ -16,7 +18,8 @@ SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   ForecastIO: a195c8ec7bd3f23ed856fce1bbf2f141abc45dc8
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
+  SQLite.swift: 6a6e4b034efc317ce4e203b6af2d3024fee2b570
 
-PODFILE CHECKSUM: ce3e40e49252e2797b986eec2e09ddafce8148e0
+PODFILE CHECKSUM: 3c7e32776ca2ddcc2fb661e7ec20f60fb92e81ce
 
 COCOAPODS: 1.0.1

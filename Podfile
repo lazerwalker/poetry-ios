@@ -5,6 +5,7 @@ use_frameworks!
 target 'Poetry' do
     pod 'Alamofire', '~> 3.4'
     pod 'ForecastIO', '~> 2.1'
+    pod 'SQLite.swift', '~> 0.10'
 end
 
 plugin 'cocoapods-keys', {
