@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     var running = false
 
     override func viewDidLoad() {
+        StanzaFetcher.fetchWithPrimetext("This is how the world ends", temperature: 40, length: 20)
+
         super.viewDidLoad()
         running = true
 
@@ -18,7 +20,7 @@ class ViewController: UIViewController {
             networkInterface = NetworkInterface(hostname: config.serverRoot)
         }
 
-        fetchPoetry()
+//        fetchPoetry()
 
         print(timeSensor.isWeekday())
         print(timeSensor.timeOfDay())

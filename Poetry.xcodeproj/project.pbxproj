@@ -10,6 +10,9 @@
 		218808CF6C401249791CA4F0 /* Pods_Poetry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C91C3CA4989DBA653D87CDD7 /* Pods_Poetry.framework */; };
 		C62374C81D53AAA700B444FD /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C62374C71D53AAA700B444FD /* config.plist */; };
 		C62374CA1D53AAD400B444FD /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62374C91D53AAD400B444FD /* Config.swift */; };
+		C63F5CAD1D78D58000E8A41D /* StanzaFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F5CAC1D78D58000E8A41D /* StanzaFetcher.swift */; };
+		C63F5CAF1D78D65000E8A41D /* Stanza.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F5CAE1D78D65000E8A41D /* Stanza.swift */; };
+		C63F5CB01D78D93F00E8A41D /* poetry.db in Resources */ = {isa = PBXBuildFile; fileRef = C63F5CAB1D78D57600E8A41D /* poetry.db */; };
 		C6B0CDCC1D529D2C003E784F /* TimeSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B0CDCB1D529D2C003E784F /* TimeSensor.swift */; };
 		C6DEAE871D5129A400C2A14D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE861D5129A400C2A14D /* AppDelegate.swift */; };
 		C6DEAE891D5129A400C2A14D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE881D5129A400C2A14D /* ViewController.swift */; };
@@ -27,6 +30,9 @@
 		82D9F5436858CF66A5BBC71A /* Pods-Poetry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetry.release.xcconfig"; path = "Pods/Target Support Files/Pods-Poetry/Pods-Poetry.release.xcconfig"; sourceTree = "<group>"; };
 		C62374C71D53AAA700B444FD /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		C62374C91D53AAD400B444FD /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C63F5CAB1D78D57600E8A41D /* poetry.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = poetry.db; sourceTree = "<group>"; };
+		C63F5CAC1D78D58000E8A41D /* StanzaFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StanzaFetcher.swift; sourceTree = "<group>"; };
+		C63F5CAE1D78D65000E8A41D /* Stanza.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stanza.swift; sourceTree = "<group>"; };
 		C6B0CDCB1D529D2C003E784F /* TimeSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSensor.swift; sourceTree = "<group>"; };
 		C6DEAE831D5129A400C2A14D /* Poetry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poetry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DEAE861D5129A400C2A14D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +89,7 @@
 		C6DEAE851D5129A400C2A14D /* Poetry */ = {
 			isa = PBXGroup;
 			children = (
+				C63F5CAB1D78D57600E8A41D /* poetry.db */,
 				C6DEAE9E1D52916100C2A14D /* Sensors */,
 				C6DEAE861D5129A400C2A14D /* AppDelegate.swift */,
 				C6DEAE881D5129A400C2A14D /* ViewController.swift */,
@@ -94,6 +101,8 @@
 				C6DEAE9A1D51941400C2A14D /* RobotVoiceOutput.swift */,
 				C62374C71D53AAA700B444FD /* config.plist */,
 				C62374C91D53AAD400B444FD /* Config.swift */,
+				C63F5CAC1D78D58000E8A41D /* StanzaFetcher.swift */,
+				C63F5CAE1D78D65000E8A41D /* Stanza.swift */,
 			);
 			path = Poetry;
 			sourceTree = "<group>";
@@ -183,6 +192,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C63F5CB01D78D93F00E8A41D /* poetry.db in Resources */,
 				C62374C81D53AAA700B444FD /* config.plist in Resources */,
 				C6DEAE911D5129A400C2A14D /* LaunchScreen.storyboard in Resources */,
 				C6DEAE8E1D5129A400C2A14D /* Assets.xcassets in Resources */,
@@ -245,12 +255,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C63F5CAF1D78D65000E8A41D /* Stanza.swift in Sources */,
 				C6DEAEA01D5297F900C2A14D /* WeatherSensor.swift in Sources */,
 				C6DEAE891D5129A400C2A14D /* ViewController.swift in Sources */,
 				C6B0CDCC1D529D2C003E784F /* TimeSensor.swift in Sources */,
 				C6DEAE991D5188DA00C2A14D /* NetworkInterface.swift in Sources */,
 				C6DEAE9D1D52915E00C2A14D /* LocationSensor.swift in Sources */,
 				C62374CA1D53AAD400B444FD /* Config.swift in Sources */,
+				C63F5CAD1D78D58000E8A41D /* StanzaFetcher.swift in Sources */,
 				C6DEAE9B1D51941400C2A14D /* RobotVoiceOutput.swift in Sources */,
 				C6DEAE871D5129A400C2A14D /* AppDelegate.swift in Sources */,
 			);
