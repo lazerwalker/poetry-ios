@@ -11,13 +11,7 @@ class ViewController: UIViewController {
     var running = false
 
     override func viewDidLoad() {
-        voice.onComplete = {
-            if self.running {
-                if let stanza = StanzaFetcher.fetchWithPrimetext("The sun shone", temperature: 40, length: 20) {
-                    self.speak(stanza)
-                }
-            }
-        }
+        voice.onComplete = prepareNextStanza
 
         super.viewDidLoad()
         running = true
@@ -40,6 +34,19 @@ class ViewController: UIViewController {
         locationSensor.start()
     }
 
+    func prepareNextStanza() {
+        if self.running {
+            let seconds = 1.0
+            let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+            let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+
+            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                if let stanza = StanzaFetcher.fetchWithPrimetext("The sun shone", temperature: 40, length: 20) {
+                    self.speak(stanza)
+                }
+            })
+        }
+    }
 
     func speak(result:Stanza) {
         print(result)
