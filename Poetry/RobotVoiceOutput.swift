@@ -4,6 +4,8 @@ import Foundation
 class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
     let synthesizer = AVSpeechSynthesizer()
 
+    var onComplete:(()->Void)?
+
     override init() {
         super.init()
         synthesizer.delegate = self
@@ -29,5 +31,9 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
     }
 
     //- AVSpeechSynthesizerDelegate
-
+    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
+        if let cb = self.onComplete {
+            cb()
+        }
+    }
 }

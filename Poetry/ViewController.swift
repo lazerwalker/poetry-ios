@@ -11,17 +11,21 @@ class ViewController: UIViewController {
     var running = false
 
     override func viewDidLoad() {
-        print(StanzaFetcher.fetchWithPrimetext("The sun shone", temperature: 40, length: 20))
+        voice.onComplete = {
+            if self.running {
+                if let stanza = StanzaFetcher.fetchWithPrimetext("The sun shone", temperature: 40, length: 20) {
+                    self.speak(stanza)
+                }
+            }
+        }
 
         super.viewDidLoad()
         running = true
 
-        if let config = Config() {
-            networkInterface = NetworkInterface(hostname: config.serverRoot)
+        if let stanza = StanzaFetcher.fetchWithPrimetext("The sun shone", temperature: 40, length: 20) {
+            speak(stanza)
         }
-
-//        fetchPoetry()
-
+        
         print(timeSensor.isWeekday())
         print(timeSensor.timeOfDay())
 
@@ -36,17 +40,11 @@ class ViewController: UIViewController {
         locationSensor.start()
     }
 
-    func fetchPoetry() {
-        networkInterface?.fetchPoetryWithText("I wonder if", temperature: 0.4, callback: poetryHandler)
-    }
 
-    func poetryHandler(result:String) {
+    func speak(result:Stanza) {
         print(result)
-        self.voice.speak(result)
 
-        if running {
-            fetchPoetry()
-        }
+        self.voice.speak(result.text)
     }
 
     override func didReceiveMemoryWarning() {
