@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		218808CF6C401249791CA4F0 /* Pods_Poetry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C91C3CA4989DBA653D87CDD7 /* Pods_Poetry.framework */; };
+		C6215A5F1D7DE89800BA230E /* InputCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215A5E1D7DE89800BA230E /* InputCalculator.swift */; };
+		C6215A611D7DE94100BA230E /* StanzaInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215A601D7DE94100BA230E /* StanzaInput.swift */; };
 		C62374C81D53AAA700B444FD /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C62374C71D53AAA700B444FD /* config.plist */; };
 		C62374CA1D53AAD400B444FD /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62374C91D53AAD400B444FD /* Config.swift */; };
 		C63F5CAD1D78D58000E8A41D /* StanzaFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F5CAC1D78D58000E8A41D /* StanzaFetcher.swift */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		44DCFC7635F2187A7D0E4B90 /* Pods-Poetry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetry.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Poetry/Pods-Poetry.debug.xcconfig"; sourceTree = "<group>"; };
 		82D9F5436858CF66A5BBC71A /* Pods-Poetry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetry.release.xcconfig"; path = "Pods/Target Support Files/Pods-Poetry/Pods-Poetry.release.xcconfig"; sourceTree = "<group>"; };
+		C6215A5E1D7DE89800BA230E /* InputCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputCalculator.swift; sourceTree = "<group>"; };
+		C6215A601D7DE94100BA230E /* StanzaInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StanzaInput.swift; sourceTree = "<group>"; };
 		C62374C71D53AAA700B444FD /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		C62374C91D53AAD400B444FD /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C63F5CAB1D78D57600E8A41D /* poetry.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = poetry.db; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 				C62374C91D53AAD400B444FD /* Config.swift */,
 				C63F5CAC1D78D58000E8A41D /* StanzaFetcher.swift */,
 				C63F5CAE1D78D65000E8A41D /* Stanza.swift */,
+				C6215A5E1D7DE89800BA230E /* InputCalculator.swift */,
+				C6215A601D7DE94100BA230E /* StanzaInput.swift */,
 			);
 			path = Poetry;
 			sourceTree = "<group>";
@@ -267,11 +273,13 @@
 				C6DEAE891D5129A400C2A14D /* ViewController.swift in Sources */,
 				C6B0CDCC1D529D2C003E784F /* TimeSensor.swift in Sources */,
 				C6DEAE991D5188DA00C2A14D /* NetworkInterface.swift in Sources */,
+				C6215A611D7DE94100BA230E /* StanzaInput.swift in Sources */,
 				C6DEAE9D1D52915E00C2A14D /* LocationSensor.swift in Sources */,
 				C66D42F81D7A364D00794BB4 /* Geofence.swift in Sources */,
 				C62374CA1D53AAD400B444FD /* Config.swift in Sources */,
 				C63F5CAD1D78D58000E8A41D /* StanzaFetcher.swift in Sources */,
 				C6DEAE9B1D51941400C2A14D /* RobotVoiceOutput.swift in Sources */,
+				C6215A5F1D7DE89800BA230E /* InputCalculator.swift in Sources */,
 				C6DEAE871D5129A400C2A14D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

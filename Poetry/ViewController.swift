@@ -7,8 +7,15 @@ class ViewController: UIViewController {
     let locationSensor = LocationSensor()
     let weatherSensor = WeatherSensor()
     let timeSensor = TimeSensor()
+    let calculator:InputCalculator
 
     var running = false
+
+    required init?(coder aDecoder: NSCoder) {
+        calculator = InputCalculator(location: locationSensor, weather: weatherSensor, time: timeSensor)
+
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         voice.onComplete = prepareNextStanza
@@ -16,7 +23,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         running = true
 
-        if let stanza = StanzaFetcher.fetchWithPrimetext("The sun shone", temperature: 40, length: 20) {
+        if let stanza = StanzaFetcher.fetch(calculator.nextInput()) {
             speak(stanza)
         }
 
@@ -41,7 +48,7 @@ class ViewController: UIViewController {
             let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
 
             dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                if let stanza = StanzaFetcher.fetchWithPrimetext("The sun shone", temperature: 40, length: 20) {
+                if let stanza = StanzaFetcher.fetch(self.calculator.nextInput()) {
                     self.speak(stanza)
                 }
             })
