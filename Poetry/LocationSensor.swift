@@ -7,15 +7,15 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
     var onLocationChange:(CLLocation -> Void)?
     var running = false
 
+    let regions:[MKCircle]
+
     override init() {
+        let regionJSON = NSBundle.mainBundle().pathForResource("regions", ofType: "json")
+        let content = try! String(contentsOfFile: regionJSON!, encoding: NSUTF8StringEncoding)
+        regions = Geofence.circlesFromJSON(content)
+
         super.init()
         manager.delegate = self
-
-        let regions = NSBundle.mainBundle().pathForResource("regions", ofType: "json")
-        let content = try! String(contentsOfFile: regions!, encoding: NSUTF8StringEncoding)
-        if let circles = Geofence.circlesFromJSON(content) {
-            print(circles)
-        }
     }
 
     func start() {
@@ -33,7 +33,27 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
         manager.stopUpdatingLocation()
     }
 
-//    func currentRegion
+    func currentRegion() -> MKCircle? {
+        if let location = manager.location {
+            let mapPoint = MKMapPointForCoordinate(location.coordinate)
+
+            let containingRegions = regions.filter { (circle) -> Bool in
+                return MKMapRectContainsPoint(circle.boundingMapRect, mapPoint)
+            }
+
+            if containingRegions.count == 0 {
+                return nil
+            } else if containingRegions.count == 1 {
+                return containingRegions.first!
+            } else {
+                return containingRegions.sort({ (circle1, circle2) -> Bool in
+                    return circle1.radius < circle2.radius
+                }).first!
+            }
+        }
+
+        return nil
+    }
 
     // - Private
 

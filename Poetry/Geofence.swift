@@ -26,7 +26,7 @@ struct Geofence {
         return nil
     }
 
-    static func circlesFromJSON(json:String) -> [MKCircle]? {
+    static func circlesFromJSON(json:String) -> [MKCircle] {
         do {
             let data = json.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
             let json = try NSJSONSerialization.JSONObjectWithData(data, options: []) as! [[String: AnyObject]]
@@ -48,7 +48,7 @@ struct Geofence {
             })
         } catch let error as NSError {
             print("Failed to load: \(error.localizedDescription)")
-            return nil
+            return []
         }
     }
 }
