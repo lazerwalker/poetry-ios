@@ -1,15 +1,21 @@
 import CoreLocation
 import Foundation
+import MapKit
 
 class LocationSensor : NSObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
-
     var onLocationChange:(CLLocation -> Void)?
     var running = false
 
     override init() {
         super.init()
         manager.delegate = self
+
+        let regions = NSBundle.mainBundle().pathForResource("regions", ofType: "json")
+        let content = try! String(contentsOfFile: regions!, encoding: NSUTF8StringEncoding)
+        if let circles = Geofence.circlesFromJSON(content) {
+            print(circles)
+        }
     }
 
     func start() {
@@ -26,6 +32,8 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
         running = false
         manager.stopUpdatingLocation()
     }
+
+//    func currentRegion
 
     // - Private
 

@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         if let stanza = StanzaFetcher.fetchWithPrimetext("The sun shone", temperature: 40, length: 20) {
             speak(stanza)
         }
-        
+
         print(timeSensor.isWeekday())
         print(timeSensor.timeOfDay())
 
