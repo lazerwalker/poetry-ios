@@ -10,6 +10,7 @@
 		218808CF6C401249791CA4F0 /* Pods_Poetry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C91C3CA4989DBA653D87CDD7 /* Pods_Poetry.framework */; };
 		C6215A5F1D7DE89800BA230E /* InputCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215A5E1D7DE89800BA230E /* InputCalculator.swift */; };
 		C6215A611D7DE94100BA230E /* StanzaInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215A601D7DE94100BA230E /* StanzaInput.swift */; };
+		C6215A641D7F72ED00BA230E /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215A631D7F72ED00BA230E /* DB.swift */; };
 		C6215A651D7F76DD00BA230E /* poetry.db in Resources */ = {isa = PBXBuildFile; fileRef = C6215A621D7F729600BA230E /* poetry.db */; };
 		C62374C81D53AAA700B444FD /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C62374C71D53AAA700B444FD /* config.plist */; };
 		C62374CA1D53AAD400B444FD /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62374C91D53AAD400B444FD /* Config.swift */; };
@@ -35,6 +36,7 @@
 		C6215A5E1D7DE89800BA230E /* InputCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputCalculator.swift; sourceTree = "<group>"; };
 		C6215A601D7DE94100BA230E /* StanzaInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StanzaInput.swift; sourceTree = "<group>"; };
 		C6215A621D7F729600BA230E /* poetry.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = poetry.db; sourceTree = "<group>"; };
+		C6215A631D7F72ED00BA230E /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		C62374C71D53AAA700B444FD /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		C62374C91D53AAD400B444FD /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C63F5CAC1D78D58000E8A41D /* StanzaFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StanzaFetcher.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				C63F5CAE1D78D65000E8A41D /* Stanza.swift */,
 				C6215A5E1D7DE89800BA230E /* InputCalculator.swift */,
 				C6215A601D7DE94100BA230E /* StanzaInput.swift */,
+				C6215A631D7F72ED00BA230E /* DB.swift */,
 			);
 			path = Poetry;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				C6DEAE9B1D51941400C2A14D /* RobotVoiceOutput.swift in Sources */,
 				C6215A5F1D7DE89800BA230E /* InputCalculator.swift in Sources */,
 				C6DEAE871D5129A400C2A14D /* AppDelegate.swift in Sources */,
+				C6215A641D7F72ED00BA230E /* DB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

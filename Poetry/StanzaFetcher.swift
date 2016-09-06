@@ -8,19 +8,9 @@ struct StanzaFetcher {
     static let temperature = Expression<Int>("temperature")
     static let length = Expression<Int>("length")
 
-    static func connectionToPoetryDB() -> Connection? {
-        let path = NSBundle.mainBundle().pathForResource("poetry", ofType: "db")!
-
-        do {
-            return try Connection(path, readonly: true)
-        } catch {
-            return nil
-        }
-    }
-
     // TODO: length is not used
     static func fetch(input:StanzaInput) -> Stanza? {
-        if let db = StanzaFetcher.connectionToPoetryDB() {
+        if let db = DB.connectionToPoetryDB() {
             let query = table
                 .filter(self.primetext == input.primetext)
                 .filter(self.temperature == input.temperature)

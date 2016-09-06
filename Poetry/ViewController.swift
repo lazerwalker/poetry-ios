@@ -31,11 +31,8 @@ class ViewController: UIViewController {
         print(timeSensor.timeOfDay())
 
         locationSensor.onLocationChange = { location in
-            print(location)
             self.weatherSensor.location = location.coordinate
-            self.weatherSensor.getWeather({ (forecast) in
-                print(forecast)
-            })
+            self.weatherSensor.getWeather({ (forecast) in })
         }
 
         locationSensor.start()
