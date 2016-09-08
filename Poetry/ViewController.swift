@@ -12,9 +12,10 @@ class ViewController: UIViewController {
 
     var running = false
 
-    @IBOutlet weak var coreLocationSpeed: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var primetextLabel: UILabel!
+    @IBOutlet weak var speedLabel: UILabel!
 
-    
     required init?(coder aDecoder: NSCoder) {
         calculator = InputCalculator(location: locationSensor, weather: weatherSensor, time: timeSensor)
 
@@ -36,8 +37,13 @@ class ViewController: UIViewController {
 
 
         locationSensor.onLocationChange = { location in
-            self.weatherSensor.location = location.coordinate
-            self.weatherSensor.getWeather({ (forecast) in })
+            self.locationLabel.text = self.locationSensor.currentRegion()?.title
+
+            if let speed = self.locationSensor.currentSpeed() {
+                self.speedLabel.text = String(speed)
+            }
+//            self.weatherSensor.location = location.coordinate
+//            self.weatherSensor.getWeather({ (forecast) in })
         }
 
         locationSensor.start()
@@ -59,6 +65,8 @@ class ViewController: UIViewController {
 
     func speak(result:Stanza) {
         print(result)
+        self.primetextLabel.text = result.primetext
+        self.primetextLabel.sizeToFit()
 
         self.voice.speak(result.text)
     }
