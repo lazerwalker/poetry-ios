@@ -12,6 +12,7 @@
 		C6215A611D7DE94100BA230E /* StanzaInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215A601D7DE94100BA230E /* StanzaInput.swift */; };
 		C6215A641D7F72ED00BA230E /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215A631D7F72ED00BA230E /* DB.swift */; };
 		C6215A651D7F76DD00BA230E /* poetry.db in Resources */ = {isa = PBXBuildFile; fileRef = C6215A621D7F729600BA230E /* poetry.db */; };
+		C6215A671D7F7B3200BA230E /* MotionSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6215A661D7F7B3200BA230E /* MotionSensor.swift */; };
 		C62374C81D53AAA700B444FD /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C62374C71D53AAA700B444FD /* config.plist */; };
 		C62374CA1D53AAD400B444FD /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62374C91D53AAD400B444FD /* Config.swift */; };
 		C63F5CAD1D78D58000E8A41D /* StanzaFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F5CAC1D78D58000E8A41D /* StanzaFetcher.swift */; };
@@ -37,6 +38,7 @@
 		C6215A601D7DE94100BA230E /* StanzaInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StanzaInput.swift; sourceTree = "<group>"; };
 		C6215A621D7F729600BA230E /* poetry.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = poetry.db; sourceTree = "<group>"; };
 		C6215A631D7F72ED00BA230E /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		C6215A661D7F7B3200BA230E /* MotionSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionSensor.swift; sourceTree = "<group>"; };
 		C62374C71D53AAA700B444FD /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		C62374C91D53AAD400B444FD /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C63F5CAC1D78D58000E8A41D /* StanzaFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StanzaFetcher.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				C6DEAE9C1D52915E00C2A14D /* LocationSensor.swift */,
+				C6215A661D7F7B3200BA230E /* MotionSensor.swift */,
 				C6DEAE9F1D5297F900C2A14D /* WeatherSensor.swift */,
 				C6B0CDCB1D529D2C003E784F /* TimeSensor.swift */,
 			);
@@ -280,6 +283,7 @@
 				C6DEAE9D1D52915E00C2A14D /* LocationSensor.swift in Sources */,
 				C66D42F81D7A364D00794BB4 /* Geofence.swift in Sources */,
 				C62374CA1D53AAD400B444FD /* Config.swift in Sources */,
+				C6215A671D7F7B3200BA230E /* MotionSensor.swift in Sources */,
 				C63F5CAD1D78D58000E8A41D /* StanzaFetcher.swift in Sources */,
 				C6DEAE9B1D51941400C2A14D /* RobotVoiceOutput.swift in Sources */,
 				C6215A5F1D7DE89800BA230E /* InputCalculator.swift in Sources */,

@@ -7,10 +7,16 @@ class ViewController: UIViewController {
     let locationSensor = LocationSensor()
     let weatherSensor = WeatherSensor()
     let timeSensor = TimeSensor()
+    let motionSensor = MotionSensor()
+
     let calculator:InputCalculator
 
     var running = false
 
+    @IBOutlet weak var coreLocationSpeed: UILabel!
+    @IBOutlet weak var coreMotionSpeed: UILabel!
+
+    
     required init?(coder aDecoder: NSCoder) {
         calculator = InputCalculator(location: locationSensor, weather: weatherSensor, time: timeSensor)
 
@@ -30,10 +36,17 @@ class ViewController: UIViewController {
         print(timeSensor.isWeekday())
         print(timeSensor.timeOfDay())
 
+
         locationSensor.onLocationChange = { location in
+            self.coreLocationSpeed.text = String(location.speed)
             self.weatherSensor.location = location.coordinate
             self.weatherSensor.getWeather({ (forecast) in })
         }
+
+        motionSensor.onAccelerationChange = { acceleration in
+            self.coreMotionSpeed.text = acceleration
+        }
+
 
         locationSensor.start()
     }

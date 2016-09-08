@@ -55,6 +55,10 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
         return nil
     }
 
+    func currentSpeed() -> CLLocationSpeed? {
+        return manager.location?.speed
+    }
+
     // - Private
 
     func startLocationUpdates() {
