@@ -10,10 +10,14 @@ struct InputCalculator {
     let weatherSensor:WeatherSensor
     let timeSensor:TimeSensor
 
+    var previousPrimetext:String
+
     init(location:LocationSensor, weather:WeatherSensor, time:TimeSensor) {
         self.locationSensor = location
         self.weatherSensor = weather
         self.timeSensor = time
+
+        previousPrimetext = ""
     }
 
     func nextInput() -> StanzaInput {
@@ -32,6 +36,7 @@ struct InputCalculator {
         if let db = DB.connectionToPoetryDB() {
             let query = table
                 .filter(location == loc)
+                .filter(primetext != self.previousPrimetext)
                 .order(Expression<Int>.random())
                 .limit(1)
 
