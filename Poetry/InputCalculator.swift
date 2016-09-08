@@ -21,7 +21,7 @@ struct InputCalculator {
             return StanzaInput(primetext:foundPrimetext, temperature:40, length: 20)
         } else {
             print("UH OH UH OH couldn't find a primetext")
-            return StanzaInput(primetext: "uh oh", temperature: 50, length: 20)
+            return nextInput()
         }
     }
 
