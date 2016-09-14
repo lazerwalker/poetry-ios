@@ -176,6 +176,7 @@
 				TargetAttributes = {
 					C6DEAE821D5129A400C2A14D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 48WB56AE4K;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -398,10 +399,12 @@
 			baseConfigurationReference = 44DCFC7635F2187A7D0E4B90 /* Pods-Poetry.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 48WB56AE4K;
 				INFOPLIST_FILE = Poetry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lazerwalker.Poetry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -410,10 +413,12 @@
 			baseConfigurationReference = 82D9F5436858CF66A5BBC71A /* Pods-Poetry.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 48WB56AE4K;
 				INFOPLIST_FILE = Poetry/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lazerwalker.Poetry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
