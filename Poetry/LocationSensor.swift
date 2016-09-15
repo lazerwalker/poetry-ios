@@ -7,12 +7,12 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
     var onLocationChange:(CLLocation -> Void)?
     var running = false
 
-    let regions:[MKCircle]
+    let regions:[Geofence]
 
     override init() {
         let regionJSON = NSBundle.mainBundle().pathForResource("regions", ofType: "json")
         let content = try! String(contentsOfFile: regionJSON!, encoding: NSUTF8StringEncoding)
-        regions = Geofence.circlesFromJSON(content)
+        regions = Geofence.fromJSONArray(content)
 
         super.init()
         manager.delegate = self
@@ -33,22 +33,22 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
         manager.stopUpdatingLocation()
     }
 
-    func currentRegion() -> MKCircle? {
+    func currentRegion() -> MKPolygon? {
         if let location = manager.location {
-            let mapPoint = MKMapPointForCoordinate(location.coordinate)
+//            let mapPoint = MKMapPointForCoordinate(location.coordinate)
+            let point = CGPointMake(CGFloat(location.coordinate.latitude), CGFloat(location.coordinate.longitude))
 
-            let containingRegions = regions.filter { (circle) -> Bool in
-                return MKMapRectContainsPoint(circle.boundingMapRect, mapPoint)
+            let containingRegions = regions.filter { (region) -> Bool in
+                return CGPathContainsPoint(region.path, nil, point, false)
             }
 
             if containingRegions.count == 0 {
                 return nil
             } else if containingRegions.count == 1 {
-                return containingRegions.first!
+                return containingRegions.first!.polygon
             } else {
-                return containingRegions.sort({ (circle1, circle2) -> Bool in
-                    return circle1.radius < circle2.radius
-                }).first!
+                // TODO: Sort by distance to center
+                return containingRegions.first!.polygon
             }
         }
 
@@ -63,7 +63,7 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
 
     func startLocationUpdates() {
         manager.startUpdatingLocation()
-        if let cb = onLocationChange, location = manager.location {
+        if let cb = onLocationChange, let location = manager.location {
             cb(location)
         }
     }
