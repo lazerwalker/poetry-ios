@@ -48,7 +48,11 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
                 return containingRegions.first!.polygon
             } else {
                 // TODO: Sort by distance to center
-                return containingRegions.first!.polygon
+                return containingRegions.sort({ (first, second) -> Bool in
+                    let firstLocation = CLLocation(latitude: first.polygon.coordinate.latitude, longitude: first.polygon.coordinate.longitude)
+                    let secondLocation = CLLocation(latitude: second.polygon.coordinate.latitude, longitude: second.polygon.coordinate.longitude)
+                    return manager.location?.distanceFromLocation(firstLocation) < manager.location?.distanceFromLocation(secondLocation)
+                }).first!.polygon
             }
         }
 
