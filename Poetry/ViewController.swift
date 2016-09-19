@@ -64,7 +64,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
     func prepareNextStanza() {
         if self.running {
-            let seconds = 1.0
+            var speed = self.locationSensor.currentSpeed()
+            if speed == 0 { speed = 0.6 }
+
+            let seconds = 1.6 / speed
             let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
             let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
 
@@ -81,7 +84,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         self.primetextLabel.text = result.primetext
         self.primetextLabel.sizeToFit()
 
-        self.voice.speak(result.text)
+        self.voice.speak(result.text, speed:self.locationSensor.currentSpeed())
     }
 
     override func didReceiveMemoryWarning() {

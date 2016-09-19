@@ -63,7 +63,7 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
         ]
     }
 
-    func speak(text:String) {
+    func speak(text:String, speed:Double) {
         let utterance = AVSpeechUtterance(string:text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
 
@@ -75,8 +75,15 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
         utterance.pitchMultiplier = randomNumberNear(1.0, within: 0.15)
 
         let rateSpread = (AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) / 10
-        utterance.rate = randomNumberNear(AVSpeechUtteranceDefaultSpeechRate, within: rateSpread)
 
+        if speed >= 2.0 {
+            utterance.rate = randomNumberNear(AVSpeechUtteranceDefaultSpeechRate + rateSpread/2, within: rateSpread/2)
+        } else if speed <= 1.0 {
+            utterance.rate = randomNumberNear(AVSpeechUtteranceDefaultSpeechRate - rateSpread/2, within: rateSpread/2)
+        } else {
+            utterance.rate = randomNumberNear(AVSpeechUtteranceDefaultSpeechRate, within: rateSpread)
+        }
+        
         print("Playing at pitch \(utterance.pitchMultiplier), rate \(utterance.rate)")
         synthesizer.speakUtterance(utterance)
     }
