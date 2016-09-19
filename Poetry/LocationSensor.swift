@@ -35,7 +35,6 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
     }
 
     func fakeLocation(coord:CLLocationCoordinate2D) {
-        stop()
         let location = CLLocation(latitude: coord.latitude, longitude: coord.longitude)
         self.fakedLocation = location
         if let cb = onLocationChange {
