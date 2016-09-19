@@ -10,6 +10,8 @@ struct InputCalculator {
     let weatherSensor:WeatherSensor
     let timeSensor:TimeSensor
 
+    var failureCount = 0
+
     var previousPrimetext:String
 
     init(location:LocationSensor, weather:WeatherSensor, time:TimeSensor) {
@@ -20,12 +22,13 @@ struct InputCalculator {
         previousPrimetext = ""
     }
 
-    func nextInput() -> StanzaInput {
-        if let foundPrimetext = primetextForRegion(self.locationSensor.currentRegion()?.title) {
+    func nextInput(fallback:Bool = false) -> StanzaInput {
+        let region = (fallback ? nil : self.locationSensor.currentRegion()?.title)
+        if let foundPrimetext = primetextForRegion(region) {
             return StanzaInput(primetext:foundPrimetext, temperature:40, length: 20)
         } else {
             print("UH OH UH OH couldn't find a primetext")
-            return nextInput()
+            return nextInput(true)
         }
     }
 
