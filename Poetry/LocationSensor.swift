@@ -6,6 +6,7 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
     var onLocationChange:(CLLocation -> Void)?
     var running = false
+    var fakedLocation:CLLocation?
 
     let regions:[Geofence]
 
@@ -33,8 +34,25 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
         manager.stopUpdatingLocation()
     }
 
+    func fakeLocation(coord:CLLocationCoordinate2D) {
+        stop()
+        let location = CLLocation(latitude: coord.latitude, longitude: coord.longitude)
+        self.fakedLocation = location
+        if let cb = onLocationChange {
+            cb(location)
+        }
+    }
+
+    func currentLocation() -> CLLocation? {
+        if self.running {
+            return manager.location
+        } else {
+            return self.fakedLocation
+        }
+    }
+
     func currentRegion() -> MKPolygon? {
-        if let location = manager.location {
+        if let location = currentLocation() {
 //            let mapPoint = MKMapPointForCoordinate(location.coordinate)
             let point = CGPointMake(CGFloat(location.coordinate.latitude), CGFloat(location.coordinate.longitude))
 
@@ -47,11 +65,10 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
             } else if containingRegions.count == 1 {
                 return containingRegions.first!.polygon
             } else {
-                // TODO: Sort by distance to center
                 return containingRegions.sort({ (first, second) -> Bool in
                     let firstLocation = CLLocation(latitude: first.polygon.coordinate.latitude, longitude: first.polygon.coordinate.longitude)
                     let secondLocation = CLLocation(latitude: second.polygon.coordinate.latitude, longitude: second.polygon.coordinate.longitude)
-                    return manager.location?.distanceFromLocation(firstLocation) < manager.location?.distanceFromLocation(secondLocation)
+                    return location.distanceFromLocation(firstLocation) < location.distanceFromLocation(secondLocation)
                 }).first!.polygon
             }
         }

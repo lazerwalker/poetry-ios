@@ -13,6 +13,8 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
     var running = false
 
+    var userPin:MKPointAnnotation?
+
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var primetextLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
@@ -57,6 +59,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
             self.mapView.addOverlay(fence.polygon)
             self.mapView.addAnnotation(fence.polygon)
         }
+
+        // Debug location setting
+        let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.changeLocation(_:)))
+        mapView.addGestureRecognizer(recognizer)
     }
 
     func prepareNextStanza() {
@@ -97,8 +103,13 @@ class ViewController: UIViewController, MKMapViewDelegate {
                 pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             }
 
-            pinView?.pinTintColor = MKPinAnnotationView.greenPinColor()
-            pinView?.canShowCallout = true
+            if (annotation.isKindOfClass(MKPointAnnotation.self)) {
+                pinView?.pinTintColor = UIColor.blueColor()
+                pinView?.canShowCallout = false
+            } else {
+                pinView?.pinTintColor = MKPinAnnotationView.greenPinColor()
+                pinView?.canShowCallout = true
+            }
             return pinView
         }
         return nil
@@ -118,6 +129,24 @@ class ViewController: UIViewController, MKMapViewDelegate {
         // But this function doesn't have a return type of Optional.
         // Obj-C interop is hard!
         return MKCircleRenderer()
+    }
+
+    //-
+    func changeLocation(gestureRecognizer:UILongPressGestureRecognizer) {
+        let point = gestureRecognizer.locationInView(self.mapView)
+        let coordinate = self.mapView.convertPoint(point, toCoordinateFromView: self.mapView)
+        self.locationSensor.fakeLocation(coordinate)
+        self.mapView.showsUserLocation = false
+
+        if let pin = self.userPin {
+            self.mapView.removeAnnotation(pin)
+        }
+
+        let userPin = MKPointAnnotation()
+        userPin.coordinate = coordinate
+        userPin.title = "User Location"
+        self.userPin = userPin
+        self.mapView.addAnnotation(userPin)
     }
 }
 
