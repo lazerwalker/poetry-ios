@@ -42,10 +42,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
 
         locationSensor.onLocationChange = { location in
             self.locationLabel.text = self.locationSensor.currentRegion()?.title
-
-            if let speed = self.locationSensor.currentSpeed() {
-                self.speedLabel.text = String(speed)
-            }
+            self.speedLabel.text = String(self.locationSensor.currentSpeed())
 //            self.weatherSensor.location = location.coordinate
 //            self.weatherSensor.getWeather({ (forecast) in })
         }

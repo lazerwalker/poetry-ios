@@ -76,8 +76,9 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
         return nil
     }
 
-    func currentSpeed() -> CLLocationSpeed? {
-        return manager.location?.speed
+    func currentSpeed() -> Double {
+        let speed = manager.location?.speed
+        return (speed != nil) ? speed! : 0.0
     }
 
     // - Private

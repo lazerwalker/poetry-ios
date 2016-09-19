@@ -25,7 +25,8 @@ struct InputCalculator {
     func nextInput(fallback:Bool = false) -> StanzaInput {
         let region = (fallback ? nil : self.locationSensor.currentRegion()?.title)
         if let foundPrimetext = primetextForRegion(region) {
-            return StanzaInput(primetext:foundPrimetext, temperature:40, length: 20)
+            let temperature = speedToTemperature(self.locationSensor.currentSpeed())
+            return StanzaInput(primetext:foundPrimetext, temperature:temperature, length: 20)
         } else {
             print("UH OH UH OH couldn't find a primetext")
             return nextInput(true)
@@ -33,6 +34,21 @@ struct InputCalculator {
     }
 
     //-
+    func speedToTemperature(speed:Double) -> Int {
+        var choices:[Int] = []
+        if (speed <= 1.0) {
+            choices = [30, 40]
+        } else if (speed <= 1.6) {
+            choices = [40, 50]
+        } else if (speed <= 2.0) {
+            choices = [50, 60]
+        } else if (speed > 2.0) {
+            choices = [60, 70]
+        }
+        let idx = Int(arc4random_uniform(UInt32(choices.count)))
+        return choices[idx]
+    }
+
     func primetextForRegion(region:String?) -> String? {
         let loc = (region != nil ? region! : "fallback")
 
