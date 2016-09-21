@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ElS-mY-IWA">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.34999999999999998" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ElS-mY-IWA">
                                 <connections>
                                     <outlet property="delegate" destination="K4b-jn-rVp" id="TqG-gB-aCo"/>
                                 </connections>
@@ -31,16 +33,14 @@
                                     <action selector="didTapDebugButton:" destination="K4b-jn-rVp" eventType="touchUpInside" id="Fwq-xe-UVh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxk-iG-UPt">
-                                <frame key="frameInset" minX="16" minY="47" width="343" height="508"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <string key="text">Computational Flâneur is a generative poetry walk. 
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxk-iG-UPt">
+                                <string key="text">Computational Flâneur is a generative poetry walk.
 
 As you wander through Fort Mason, your phone will create poetry for you based on where you go, how quickly you move, and other factors.
 
-These poems are just for you. Someone standing right beside you will have a completely different experience.
+These poems are just for you. If you have a walking companion, their experience will be different.
 
-We suggest you explore the park freely, letting both your feet and your mind wander.</string>
+We suggest you explore the park freely, letting both your mind and your feet wander.</string>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -48,10 +48,13 @@ We suggest you explore the park freely, letting both your feet and your mind wan
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="cxk-iG-UPt" firstAttribute="centerY" secondItem="FUF-3R-fCp" secondAttribute="centerY" multiplier="0.8" id="Aal-ya-Vst"/>
                             <constraint firstItem="Vc7-B0-oK5" firstAttribute="top" secondItem="ElS-mY-IWA" secondAttribute="bottom" id="Rzj-L1-6Rs"/>
                             <constraint firstItem="ElS-mY-IWA" firstAttribute="leading" secondItem="FUF-3R-fCp" secondAttribute="leading" id="Spw-J7-BMf"/>
+                            <constraint firstItem="cxk-iG-UPt" firstAttribute="trailing" secondItem="FUF-3R-fCp" secondAttribute="trailingMargin" id="ZEU-bO-dsT"/>
                             <constraint firstAttribute="trailing" secondItem="ElS-mY-IWA" secondAttribute="trailing" id="gva-IR-Ro6"/>
                             <constraint firstItem="ElS-mY-IWA" firstAttribute="top" secondItem="FUF-3R-fCp" secondAttribute="top" id="yEQ-f2-ULn"/>
+                            <constraint firstItem="cxk-iG-UPt" firstAttribute="leading" secondItem="FUF-3R-fCp" secondAttribute="leadingMargin" id="yFn-WR-UpS"/>
                         </constraints>
                     </view>
                     <connections>

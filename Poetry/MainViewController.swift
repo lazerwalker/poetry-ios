@@ -18,7 +18,10 @@ class MainViewController : UIViewController, MKMapViewDelegate {
         self.mapView.showsUserLocation = true
 
         mapView.userInteractionEnabled = false
-        let region = MKCoordinateRegion(center: generator!.calculator.locationSensor.fortMason, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+
+        let fortMason = CLLocationCoordinate2D(latitude: 37.809, longitude: -122.429)
+
+        let region = MKCoordinateRegion(center: fortMason, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         mapView.setRegion(region, animated: false)
 
         generator?.calculator.locationSensor.onLocationChange = { (location) in
