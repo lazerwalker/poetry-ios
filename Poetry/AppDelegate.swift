@@ -3,7 +3,7 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var calculator:InputCalculator?
+    var generator:PoetryGenerator?
     var weatherSensor = WeatherSensor()
     var locationSensor = LocationSensor()
     var timeSensor = TimeSensor()
@@ -15,12 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayback)       
 
-        calculator = InputCalculator(location: locationSensor, weather: weatherSensor, time: timeSensor)
+        let calculator = InputCalculator(location: locationSensor, weather: weatherSensor, time: timeSensor)
+        let generator = PoetryGenerator(calculator: calculator)
 
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let storyboard = UIStoryboard(name: "DebugViewController", bundle: NSBundle.mainBundle())
         let debugVC = storyboard.instantiateInitialViewController() as? DebugViewController
-        debugVC?.calculator = calculator
+        debugVC?.generator = generator
         window?.rootViewController = debugVC
         window?.makeKeyAndVisible()
 

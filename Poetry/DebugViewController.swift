@@ -3,9 +3,8 @@ import MapKit
 
 class DebugViewController: UIViewController, MKMapViewDelegate {
     var networkInterface:NetworkInterface?
-    let voice = RobotVoiceOutput()
 
-    var calculator:InputCalculator?
+    var generator:PoetryGenerator?
 
     var running = false
 
@@ -21,28 +20,24 @@ class DebugViewController: UIViewController, MKMapViewDelegate {
     }
 
     override func viewDidLoad() {
-        voice.onComplete = prepareNextStanza
-
         super.viewDidLoad()
-        running = true
 
-        if let input = calculator?.nextInput(),
-            stanza = StanzaFetcher.fetch(input) {
-            speak(stanza)
-        }
-
-
-        calculator?.locationSensor.onLocationChange = { location in
-            self.locationLabel.text = self.calculator?.locationSensor.currentRegion()?.title
-            self.speedLabel.text = String(self.calculator?.locationSensor.currentSpeed())
+        generator?.calculator.locationSensor.onLocationChange = { location in
+            self.locationLabel.text = self.generator?.calculator.locationSensor.currentRegion()?.title
+            self.speedLabel.text = String(self.generator?.calculator.locationSensor.currentSpeed())
 //            self.weatherSensor.location = location.coordinate
 //            self.weatherSensor.getWeather({ (forecast) in })
+        }
+
+        generator?.onSpeak = {
+            self.primetextLabel.text = $0.primetext
+            self.primetextLabel.sizeToFit()
         }
 
         // Map view setup
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.FollowWithHeading, animated: true)
-        calculator?.locationSensor.regions.forEach { (fence) in
+        generator?.calculator.locationSensor.regions.forEach { (fence) in
             self.mapView.addOverlay(fence.polygon)
             self.mapView.addAnnotation(fence.polygon)
         }
@@ -50,31 +45,8 @@ class DebugViewController: UIViewController, MKMapViewDelegate {
         // Debug location setting
         let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(DebugViewController.changeLocation(_:)))
         mapView.addGestureRecognizer(recognizer)
-    }
 
-    func prepareNextStanza() {
-        if self.running {
-            var speed = self.calculator!.locationSensor.currentSpeed()
-            if speed == 0 { speed = 0.6 }
-
-            let seconds = 1.6 / speed
-            let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
-            let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-
-            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                if let stanza = StanzaFetcher.fetch(self.calculator!.nextInput()) {
-                    self.speak(stanza)
-                }
-            })
-        }
-    }
-
-    func speak(result:Stanza) {
-        print(result)
-        self.primetextLabel.text = result.primetext
-        self.primetextLabel.sizeToFit()
-
-        self.voice.speak(result.text, speed:self.calculator!.locationSensor.currentSpeed())
+        generator?.start()
     }
 
     override func didReceiveMemoryWarning() {
@@ -125,7 +97,7 @@ class DebugViewController: UIViewController, MKMapViewDelegate {
     func changeLocation(gestureRecognizer:UILongPressGestureRecognizer) {
         let point = gestureRecognizer.locationInView(self.mapView)
         let coordinate = self.mapView.convertPoint(point, toCoordinateFromView: self.mapView)
-        self.calculator!.locationSensor.fakeLocation(coordinate)
+        self.generator?.calculator.locationSensor.fakeLocation(coordinate)
         self.mapView.showsUserLocation = false
 
         if let pin = self.userPin {
