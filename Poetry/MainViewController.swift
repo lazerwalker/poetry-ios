@@ -1,8 +1,9 @@
 import Foundation
 import UIKit
 import MapKit
+import SafariServices
 
-class MainViewController : UIViewController, MKMapViewDelegate {
+class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewControllerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var debugButton: UIButton!
 
@@ -54,4 +55,23 @@ class MainViewController : UIViewController, MKMapViewDelegate {
 
     }
 
+    @IBAction func didTapMikeButton(sender: AnyObject) {
+        if let url = NSURL(string: "http://lazerwalker.com") {
+            let webView = SFSafariViewController(URL: url)
+            webView.delegate = self
+            self.presentViewController(webView, animated: true, completion: nil)
+        }
+    }
+
+    @IBAction func didTapCOAPButton(sender: AnyObject) {
+        if let url = NSURL(string: "http://comeoutandplaysf.org") {
+            let webView = SFSafariViewController(URL: url)
+            webView.delegate = self
+            self.presentViewController(webView, animated: true, completion: nil)
+        }
+    }
+    //-
+    func safariViewControllerDidFinish(controller: SFSafariViewController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
