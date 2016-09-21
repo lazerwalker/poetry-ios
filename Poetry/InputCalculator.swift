@@ -20,6 +20,8 @@ struct InputCalculator {
         self.timeSensor = time
 
         previousPrimetext = ""
+
+        self.locationSensor.start()
     }
 
     func nextInput(fallback:Bool = false) -> StanzaInput {

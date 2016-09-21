@@ -1,15 +1,11 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, MKMapViewDelegate {
+class DebugViewController: UIViewController, MKMapViewDelegate {
     var networkInterface:NetworkInterface?
     let voice = RobotVoiceOutput()
 
-    let locationSensor = LocationSensor()
-    let weatherSensor = WeatherSensor()
-    let timeSensor = TimeSensor()
-
-    let calculator:InputCalculator
+    var calculator:InputCalculator?
 
     var running = false
 
@@ -21,8 +17,6 @@ class ViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
 
     required init?(coder aDecoder: NSCoder) {
-        calculator = InputCalculator(location: locationSensor, weather: weatherSensor, time: timeSensor)
-
         super.init(coder: aDecoder)
     }
 
@@ -32,39 +26,35 @@ class ViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         running = true
 
-        if let stanza = StanzaFetcher.fetch(calculator.nextInput()) {
+        if let input = calculator?.nextInput(),
+            stanza = StanzaFetcher.fetch(input) {
             speak(stanza)
         }
 
-        print(timeSensor.isWeekday())
-        print(timeSensor.timeOfDay())
 
-
-        locationSensor.onLocationChange = { location in
-            self.locationLabel.text = self.locationSensor.currentRegion()?.title
-            self.speedLabel.text = String(self.locationSensor.currentSpeed())
+        calculator?.locationSensor.onLocationChange = { location in
+            self.locationLabel.text = self.calculator?.locationSensor.currentRegion()?.title
+            self.speedLabel.text = String(self.calculator?.locationSensor.currentSpeed())
 //            self.weatherSensor.location = location.coordinate
 //            self.weatherSensor.getWeather({ (forecast) in })
         }
 
-        locationSensor.start()
-
         // Map view setup
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.FollowWithHeading, animated: true)
-        locationSensor.regions.forEach { (fence) in
+        calculator?.locationSensor.regions.forEach { (fence) in
             self.mapView.addOverlay(fence.polygon)
             self.mapView.addAnnotation(fence.polygon)
         }
 
         // Debug location setting
-        let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.changeLocation(_:)))
+        let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(DebugViewController.changeLocation(_:)))
         mapView.addGestureRecognizer(recognizer)
     }
 
     func prepareNextStanza() {
         if self.running {
-            var speed = self.locationSensor.currentSpeed()
+            var speed = self.calculator!.locationSensor.currentSpeed()
             if speed == 0 { speed = 0.6 }
 
             let seconds = 1.6 / speed
@@ -72,7 +62,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
             let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
 
             dispatch_after(dispatchTime, dispatch_get_main_queue(), {
-                if let stanza = StanzaFetcher.fetch(self.calculator.nextInput()) {
+                if let stanza = StanzaFetcher.fetch(self.calculator!.nextInput()) {
                     self.speak(stanza)
                 }
             })
@@ -84,7 +74,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         self.primetextLabel.text = result.primetext
         self.primetextLabel.sizeToFit()
 
-        self.voice.speak(result.text, speed:self.locationSensor.currentSpeed())
+        self.voice.speak(result.text, speed:self.calculator!.locationSensor.currentSpeed())
     }
 
     override func didReceiveMemoryWarning() {
@@ -135,7 +125,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
     func changeLocation(gestureRecognizer:UILongPressGestureRecognizer) {
         let point = gestureRecognizer.locationInView(self.mapView)
         let coordinate = self.mapView.convertPoint(point, toCoordinateFromView: self.mapView)
-        self.locationSensor.fakeLocation(coordinate)
+        self.calculator!.locationSensor.fakeLocation(coordinate)
         self.mapView.showsUserLocation = false
 
         if let pin = self.userPin {
