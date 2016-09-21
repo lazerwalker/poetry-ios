@@ -34,7 +34,6 @@ class DebugViewController: UIViewController, MKMapViewDelegate {
 
         // Map view setup
         mapView.showsUserLocation = true
-        mapView.setUserTrackingMode(.FollowWithHeading, animated: true)
         generator?.calculator.locationSensor.regions.forEach { (fence) in
             self.mapView.addOverlay(fence.polygon)
             self.mapView.addAnnotation(fence.polygon)
@@ -43,8 +42,6 @@ class DebugViewController: UIViewController, MKMapViewDelegate {
         // Debug location setting
         let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(DebugViewController.changeLocation(_:)))
         mapView.addGestureRecognizer(recognizer)
-
-        generator?.start()
     }
 
     override func didReceiveMemoryWarning() {
@@ -108,5 +105,11 @@ class DebugViewController: UIViewController, MKMapViewDelegate {
         self.userPin = userPin
         self.mapView.addAnnotation(userPin)
     }
+
+    //-
+    @IBAction func didTapForceStart(sender: AnyObject) {
+        generator?.start()
+    }
+
 }
 
