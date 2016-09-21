@@ -10,6 +10,8 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
 
     let regions:[Geofence]
 
+    let fortMason = CLLocationCoordinate2D(latitude: 37.806, longitude: -122.429)
+
     override init() {
         let regionJSON = NSBundle.mainBundle().pathForResource("regions", ofType: "json")
         let content = try! String(contentsOfFile: regionJSON!, encoding: NSUTF8StringEncoding)
@@ -40,6 +42,15 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
         self.fakedLocation = location
         if let cb = onLocationChange {
             cb(location)
+        }
+    }
+
+    func isInsideFortMason() -> Bool {
+        if let location = currentLocation() {
+            let masonLoc = CLLocation(latitude: fortMason.latitude, longitude: fortMason.longitude)
+            return location.distanceFromLocation(masonLoc) < 800.0
+        } else {
+            return false
         }
     }
 

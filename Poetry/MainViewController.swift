@@ -7,6 +7,7 @@ class MainViewController : UIViewController, MKMapViewDelegate {
     @IBOutlet weak var debugButton: UIButton!
 
     var generator:PoetryGenerator?
+    var showedWarning = false
 
     override func viewDidLoad() {
         self.mapView.showsScale = false
@@ -16,10 +17,29 @@ class MainViewController : UIViewController, MKMapViewDelegate {
 
         self.mapView.showsUserLocation = true
 
-        let fortMason = CLLocationCoordinate2D(latitude: 37.806, longitude: -122.429)
         mapView.userInteractionEnabled = false
-        let region = MKCoordinateRegion(center: fortMason, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        let region = MKCoordinateRegion(center: generator!.calculator.locationSensor.fortMason, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         mapView.setRegion(region, animated: false)
+
+        generator?.calculator.locationSensor.onLocationChange = { (location) in
+            if self.generator!.calculator.locationSensor.isInsideFortMason() {
+                self.showedWarning = false
+                if (!self.generator!.running) {
+                    self.generator?.start()
+                }
+            } else {
+                if (!self.showedWarning) {
+                    let alert = UIAlertController(title: "You're not in Fort Mason!", message: "Computational Flâneur is a site-specific experience. To take part, you need to be at Fort Mason in San Francisco, CA.", preferredStyle: .Alert)
+                    let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) in
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    })
+                    alert.addAction(ok)
+
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.showedWarning = true
+                }
+            }
+        }
     }
 
     @IBAction func didTapDebugButton(sender: AnyObject) {
