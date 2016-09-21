@@ -2,8 +2,6 @@ import UIKit
 import MapKit
 
 class DebugViewController: UIViewController, MKMapViewDelegate {
-    var networkInterface:NetworkInterface?
-
     var generator:PoetryGenerator?
 
     var running = false

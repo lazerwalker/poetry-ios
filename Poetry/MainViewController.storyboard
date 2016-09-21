@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="K4b-jn-rVp">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Computational Flaneur-->
+        <scene sceneID="SQb-td-WxN">
+            <objects>
+                <viewController title="Computational Flaneur" id="K4b-jn-rVp" customClass="MainViewController" customModule="Poetry" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Av-6q-aWX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vc7-B0-oK5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FUF-3R-fCp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ElS-mY-IWA">
+                                <connections>
+                                    <outlet property="delegate" destination="K4b-jn-rVp" id="TqG-gB-aCo"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbf-dq-1Sh">
+                                <frame key="frameInset" minX="313" minY="28" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Debug"/>
+                                <connections>
+                                    <action selector="didTapDebugButton:" destination="K4b-jn-rVp" eventType="touchUpInside" id="Fwq-xe-UVh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Vc7-B0-oK5" firstAttribute="top" secondItem="ElS-mY-IWA" secondAttribute="bottom" id="Rzj-L1-6Rs"/>
+                            <constraint firstItem="ElS-mY-IWA" firstAttribute="leading" secondItem="FUF-3R-fCp" secondAttribute="leading" id="Spw-J7-BMf"/>
+                            <constraint firstAttribute="trailing" secondItem="ElS-mY-IWA" secondAttribute="trailing" id="gva-IR-Ro6"/>
+                            <constraint firstItem="ElS-mY-IWA" firstAttribute="top" secondItem="FUF-3R-fCp" secondAttribute="top" id="yEQ-f2-ULn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="debugButton" destination="tbf-dq-1Sh" id="jII-So-jcV"/>
+                        <outlet property="mapView" destination="ElS-mY-IWA" id="NVw-bj-Fwd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PKr-dj-pfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="61.600000000000001" y="-175.86206896551727"/>
+        </scene>
+    </scenes>
+</document>

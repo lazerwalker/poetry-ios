@@ -19,10 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let generator = PoetryGenerator(calculator: calculator)
 
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let storyboard = UIStoryboard(name: "DebugViewController", bundle: NSBundle.mainBundle())
-        let debugVC = storyboard.instantiateInitialViewController() as? DebugViewController
-        debugVC?.generator = generator
-        window?.rootViewController = debugVC
+        let storyboard = UIStoryboard(name: "MainViewController", bundle: NSBundle.mainBundle())
+        let vc = storyboard.instantiateInitialViewController() as? MainViewController
+        vc?.generator = generator
+        window?.rootViewController = vc
         window?.makeKeyAndVisible()
 
         return true
