@@ -36,11 +36,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxk-iG-UPt">
                                 <string key="text">Computational Flâneur is a generative poetry walk.
 
-As you wander through Fort Mason, your phone will create poetry for you based on where you go, how quickly you move, and other factors.
+As you wander through Fort Mason, your phone will create poetry for you based on where you go, how quickly you move, and other factors. 
 
 These poems are just for you. If you have a walking companion, their experience will be different.
 
-We suggest you explore the park freely, letting both your mind and your feet wander.</string>
+We suggest you explore the park freely, letting both your mind and your feet wander. 
+
+You'll want to wear headphones.</string>
                                 <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
