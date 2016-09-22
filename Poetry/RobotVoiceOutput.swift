@@ -19,49 +19,54 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
             print(error)
         }
 
-        func continuePlaying(event:MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus {
-            if (self.synthesizer.continueSpeaking()) {
-                return .Success
-            } else {
-                return .CommandFailed
-            }
-        }
-
-        func pausePlaying(event:MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus {
-            if (self.synthesizer.pauseSpeakingAtBoundary(.Word)) {
-                return .Success
-            } else {
-                return .CommandFailed
-            }
-        }
-
-        func stopPlaying(event:MPRemoteCommandEvent) -> MPRemoteCommandHandlerStatus {
-            if (self.synthesizer.stopSpeakingAtBoundary(.Word)) {
-                return .Success
-            } else {
-                return .CommandFailed
-            }
-        }
-
         let commandCenter = MPRemoteCommandCenter.sharedCommandCenter()
         commandCenter.playCommand.addTargetWithHandler(continuePlaying)
         commandCenter.stopCommand.addTargetWithHandler(stopPlaying)
         commandCenter.pauseCommand.addTargetWithHandler(pausePlaying)
-        commandCenter.togglePlayPauseCommand.addTargetWithHandler { (event) in
-            if (self.synthesizer.speaking && !self.synthesizer.paused) {
-                return pausePlaying(event)
-            } else if (self.synthesizer.paused) {
-                return continuePlaying(event)
-            }
-            return .NoActionableNowPlayingItem
-        }
-
+        commandCenter.togglePlayPauseCommand.addTargetWithHandler(playPause)
+        
         let nowPlaying = MPNowPlayingInfoCenter.defaultCenter()
         nowPlaying.nowPlayingInfo = [
             MPMediaItemPropertyTitle: "Computational Flaneur",
             MPMediaItemPropertyArtist: "Mike Lazer-Walker",
         ]
     }
+
+    //-
+    func continuePlaying(event:MPRemoteCommandEvent?) -> MPRemoteCommandHandlerStatus {
+        if (self.synthesizer.continueSpeaking()) {
+            return .Success
+        } else {
+            return .CommandFailed
+        }
+    }
+
+    func pausePlaying(event:MPRemoteCommandEvent?) -> MPRemoteCommandHandlerStatus {
+        if (self.synthesizer.pauseSpeakingAtBoundary(.Word)) {
+            return .Success
+        } else {
+            return .CommandFailed
+        }
+    }
+
+    func stopPlaying(event:MPRemoteCommandEvent?) -> MPRemoteCommandHandlerStatus {
+        if (self.synthesizer.stopSpeakingAtBoundary(.Word)) {
+            return .Success
+        } else {
+            return .CommandFailed
+        }
+    }
+
+    func playPause(event:MPRemoteCommandEvent?) -> MPRemoteCommandHandlerStatus {
+        if (self.synthesizer.speaking && !self.synthesizer.paused) {
+            return pausePlaying(event)
+        } else if (self.synthesizer.paused) {
+            return continuePlaying(event)
+        }
+        return .NoActionableNowPlayingItem
+    }
+
+    //-
 
     func speak(text:String, speed:Double) {
         let utterance = AVSpeechUtterance(string:text)

@@ -25,7 +25,7 @@
                                     <outlet property="delegate" destination="K4b-jn-rVp" id="TqG-gB-aCo"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbf-dq-1Sh">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbf-dq-1Sh">
                                 <frame key="frameInset" minY="28" width="46" height="30" maxX="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Debug"/>
@@ -33,45 +33,49 @@
                                     <action selector="didTapDebugButton:" destination="K4b-jn-rVp" eventType="touchUpInside" id="Fwq-xe-UVh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxk-iG-UPt">
-                                <string key="text">Computational Flâneur is a generative poetry walk.
-
-As you wander through Fort Mason, your phone will create poetry for you based on where you go, how quickly you move, and other factors. 
-
-These poems are just for you. If you have a walking companion, their experience will be different.
-
-We suggest you explore the park freely, letting both your mind and your feet wander. 
-
-You'll want to wear headphones.</string>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="made for" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KB2-0Q-14g">
-                                <frame key="frameInset" minX="106" minY="620" width="75.000000000000014" height="31.999999999999972"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="made for" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KB2-0Q-14g">
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gxp-5d-d1s">
-                                <frame key="frameInset" minX="217" minY="590" width="142" height="32.000000000000064"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gxp-5d-d1s">
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Mike Lazer-Walker"/>
                                 <connections>
                                     <action selector="didTapMikeButton:" destination="K4b-jn-rVp" eventType="touchUpInside" id="MrS-Z7-1YY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsC-L2-DBF">
-                                <frame key="frameInset" minX="185" minY="620" width="174" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsC-L2-DBF">
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="Come Out and Play SF"/>
                                 <connections>
                                     <action selector="didTapCOAPButton:" destination="K4b-jn-rVp" eventType="touchUpInside" id="soh-el-B1z"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A project by" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-zl-iEV">
-                                <frame key="frameInset" minX="110" minY="590" width="102" height="32.000000000000064"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A project by" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-zl-iEV">
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6i-Jb-LW9">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="kj2-PB-b5E"/>
+                                    <constraint firstAttribute="width" constant="64" id="z55-F7-As7"/>
+                                </constraints>
+                                <state key="normal" title="Play" image="Play"/>
+                                <connections>
+                                    <action selector="didTapPlayPauseButton:" destination="K4b-jn-rVp" eventType="touchUpInside" id="8re-su-b2d"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxk-iG-UPt">
+                                <string key="text">Computational Flâneur is a generative poetry walk.
+
+As you wander through Fort Mason, your phone will create poetry for you based on where you go, how quickly you move, and other factors. 
+
+These poems are just for you. If you have a walking companion, their experience will be different. You'll want headphones.
+
+We suggest you explore the park freely, letting both your mind and your feet wander. </string>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -79,25 +83,28 @@ You'll want to wear headphones.</string>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Vc7-B0-oK5" firstAttribute="top" secondItem="Gxp-5d-d1s" secondAttribute="bottom" constant="45" id="4XF-qZ-Gep"/>
-                            <constraint firstItem="cxk-iG-UPt" firstAttribute="centerY" secondItem="FUF-3R-fCp" secondAttribute="centerY" multiplier="0.8" id="Aal-ya-Vst"/>
+                            <constraint firstItem="Y6i-Jb-LW9" firstAttribute="centerY" secondItem="FUF-3R-fCp" secondAttribute="centerY" multiplier="1.5" id="5TV-Op-Urq"/>
+                            <constraint firstItem="cxk-iG-UPt" firstAttribute="centerY" secondItem="FUF-3R-fCp" secondAttribute="centerY" multiplier="0.7" id="Aal-ya-Vst"/>
                             <constraint firstItem="Gxp-5d-d1s" firstAttribute="leading" secondItem="NfP-zl-iEV" secondAttribute="trailing" constant="4" id="Elp-dG-4jd"/>
                             <constraint firstItem="zsC-L2-DBF" firstAttribute="leading" secondItem="KB2-0Q-14g" secondAttribute="trailing" constant="4" id="FOh-J2-7KD"/>
                             <constraint firstItem="Gxp-5d-d1s" firstAttribute="centerY" secondItem="NfP-zl-iEV" secondAttribute="centerY" id="Flt-wL-btV"/>
+                            <constraint firstItem="Y6i-Jb-LW9" firstAttribute="centerX" secondItem="FUF-3R-fCp" secondAttribute="centerX" id="GdZ-lx-0lu"/>
                             <constraint firstItem="Gxp-5d-d1s" firstAttribute="trailing" secondItem="FUF-3R-fCp" secondAttribute="trailingMargin" id="JEO-V9-1UO"/>
-                            <constraint firstItem="Vc7-B0-oK5" firstAttribute="top" secondItem="ElS-mY-IWA" secondAttribute="bottom" id="Rzj-L1-6Rs"/>
                             <constraint firstItem="ElS-mY-IWA" firstAttribute="leading" secondItem="FUF-3R-fCp" secondAttribute="leading" id="Spw-J7-BMf"/>
-                            <constraint firstItem="cxk-iG-UPt" firstAttribute="trailing" secondItem="FUF-3R-fCp" secondAttribute="trailingMargin" id="ZEU-bO-dsT"/>
+                            <constraint firstItem="cxk-iG-UPt" firstAttribute="trailing" secondItem="FUF-3R-fCp" secondAttribute="trailingMargin" constant="-12" id="ZEU-bO-dsT"/>
                             <constraint firstItem="zsC-L2-DBF" firstAttribute="centerY" secondItem="KB2-0Q-14g" secondAttribute="centerY" id="eW8-hX-hHQ"/>
                             <constraint firstAttribute="trailing" secondItem="ElS-mY-IWA" secondAttribute="trailing" id="gva-IR-Ro6"/>
                             <constraint firstItem="Vc7-B0-oK5" firstAttribute="top" secondItem="zsC-L2-DBF" secondAttribute="bottom" constant="15" id="psQ-fR-2v8"/>
+                            <constraint firstAttribute="bottom" secondItem="ElS-mY-IWA" secondAttribute="bottom" id="r3Q-am-dAY"/>
                             <constraint firstItem="zsC-L2-DBF" firstAttribute="trailing" secondItem="FUF-3R-fCp" secondAttribute="trailingMargin" id="wB1-Sz-2qa"/>
                             <constraint firstItem="ElS-mY-IWA" firstAttribute="top" secondItem="FUF-3R-fCp" secondAttribute="top" id="yEQ-f2-ULn"/>
-                            <constraint firstItem="cxk-iG-UPt" firstAttribute="leading" secondItem="FUF-3R-fCp" secondAttribute="leadingMargin" id="yFn-WR-UpS"/>
+                            <constraint firstItem="cxk-iG-UPt" firstAttribute="leading" secondItem="FUF-3R-fCp" secondAttribute="leadingMargin" constant="12" id="yFn-WR-UpS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="debugButton" destination="tbf-dq-1Sh" id="jII-So-jcV"/>
                         <outlet property="mapView" destination="ElS-mY-IWA" id="NVw-bj-Fwd"/>
+                        <outlet property="playPauseButton" destination="Y6i-Jb-LW9" id="5i6-Wv-bAh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PKr-dj-pfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -105,4 +112,7 @@ You'll want to wear headphones.</string>
             <point key="canvasLocation" x="61.600000000000001" y="-175.86206896551727"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Play" width="1206" height="1206"/>
+    </resources>
 </document>

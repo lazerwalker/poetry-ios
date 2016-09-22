@@ -6,6 +6,7 @@ import SafariServices
 class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewControllerDelegate {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var debugButton: UIButton!
+    @IBOutlet weak var playPauseButton: UIButton!
 
     var generator:PoetryGenerator?
     var showedWarning = false
@@ -70,6 +71,20 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
             self.presentViewController(webView, animated: true, completion: nil)
         }
     }
+
+    @IBAction func didTapPlayPauseButton(sender: AnyObject) {
+        if let generator = generator {
+            // true = is playing
+            if (generator.playPause()) {
+                playPauseButton.setImage(UIImage(named:"Play"), forState: .Normal)
+                playPauseButton.setTitle("Play", forState: .Normal)
+            } else {
+                playPauseButton.setImage(UIImage(named:"Pause"), forState: .Normal)
+                playPauseButton.setTitle("Pause", forState: .Normal)
+            }
+        }
+    }
+    
     //-
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
         self.dismissViewControllerAnimated(true, completion: nil)

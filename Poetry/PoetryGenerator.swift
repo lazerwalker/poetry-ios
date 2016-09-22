@@ -27,6 +27,13 @@ class PoetryGenerator {
         calculator.locationSensor.stop()
     }
 
+    // True = is currently playing
+    // TODO: Make this an enum or something
+    func playPause() -> Bool {
+        voice.playPause(nil)
+        return !voice.synthesizer.paused
+    }
+
     //-
     func prepareNextStanza() {
         if self.running {
