@@ -4,7 +4,7 @@ import MapKit
 
 class LocationSensor : NSObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
-    var onLocationChange:(CLLocation -> Void)?
+    var onLocationChange:[(CLLocation -> Void)] = []
     var running = false
     var fakedLocation:CLLocation?
 
@@ -40,9 +40,13 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
         stop()
         let location = CLLocation(latitude: coord.latitude, longitude: coord.longitude)
         self.fakedLocation = location
-        if let cb = onLocationChange {
+        onLocationChange.forEach { (cb) in
             cb(location)
         }
+    }
+
+    func addLocationHandler(handler:(CLLocation) -> Void) {
+        onLocationChange.append(handler)
     }
 
     func isInsideFortMason() -> Bool {
@@ -98,15 +102,17 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
 
     func startLocationUpdates() {
         manager.startUpdatingLocation()
-        if let cb = onLocationChange, let location = manager.location {
-            cb(location)
+        if let location = manager.location {
+            onLocationChange.forEach({ (cb) in
+                cb(location)
+            })
         }
     }
 
     // - CLLocationManagerDelegate
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let cb = onLocationChange {
-            if let last = locations.last {
+        if let last = locations.last {
+            onLocationChange.forEach { (cb) in
                 cb(last)
             }
         }

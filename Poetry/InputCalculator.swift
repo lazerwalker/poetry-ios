@@ -25,8 +25,12 @@ struct InputCalculator {
     }
 
     func nextInput(fallback:Bool = false) -> StanzaInput {
-        let region = (fallback ? nil : self.locationSensor.currentRegion()?.title)
-        if let foundPrimetext = primetextForRegion(region) {
+        // This separate declaration shouldn't be necessary
+        // but is stopping a weird crash when faking location?
+        let region = self.locationSensor.currentRegion()
+
+        let regionText = (fallback ? nil : region?.title)
+        if let foundPrimetext = primetextForRegion(regionText) {
             let temperature = speedToTemperature(self.locationSensor.currentSpeed())
             return StanzaInput(primetext:foundPrimetext, temperature:temperature, length: 20)
         } else {

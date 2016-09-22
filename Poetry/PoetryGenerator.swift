@@ -54,7 +54,6 @@ class PoetryGenerator : Playable {
     func play() -> PlayStatus {
         running = true
         paused = false
-        calculator.locationSensor.start()
 
         if let stanza = StanzaFetcher.fetch(calculator.nextInput()) {
             speak(stanza)
@@ -94,6 +93,11 @@ class PoetryGenerator : Playable {
         if let cb = onChangePlayStatus {
             cb(status)
         }
+    }
+
+    //-
+    func fakeLocation() {
+        calculator.locationSensor.fakeLocation(calculator.locationSensor.fortMason)
     }
 
     //-

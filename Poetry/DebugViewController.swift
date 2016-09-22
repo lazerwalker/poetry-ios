@@ -23,7 +23,7 @@ class DebugViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        generator?.calculator.locationSensor.onLocationChange = { location in
+        generator?.calculator.locationSensor.addLocationHandler() { location in
             self.locationLabel.text = self.generator?.calculator.locationSensor.currentRegion()?.title
             self.speedLabel.text = String(self.generator?.calculator.locationSensor.currentSpeed())
 //            self.weatherSensor.location = location.coordinate
@@ -37,6 +37,11 @@ class DebugViewController: UIViewController, MKMapViewDelegate {
 
         // Map view setup
         mapView.showsUserLocation = true
+        let fortMason = CLLocationCoordinate2D(latitude: 37.809, longitude: -122.429)
+
+        let region = MKCoordinateRegion(center: fortMason, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        mapView.setRegion(region, animated: false)
+
         generator?.calculator.locationSensor.regions.forEach { (fence) in
             self.mapView.addOverlay(fence.polygon)
             self.mapView.addAnnotation(fence.polygon)
@@ -111,7 +116,7 @@ class DebugViewController: UIViewController, MKMapViewDelegate {
 
     //-
     @IBAction func didTapForceStart(sender: AnyObject) {
-        generator?.play()
+        generator?.fakeLocation()
     }
 
     @IBAction func didTapDoneButton(sender: AnyObject) {

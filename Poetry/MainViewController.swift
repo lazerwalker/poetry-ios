@@ -36,7 +36,7 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
             }
         }
 
-        generator?.calculator.locationSensor.onLocationChange = { (location) in
+        generator?.calculator.locationSensor.addLocationHandler() { (location) in
             if self.generator!.calculator.locationSensor.isInsideFortMason() {
                 self.showedWarning = false
                 self.playPauseButton.hidden = false
@@ -86,7 +86,7 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
 
     @IBAction func didTapPlayPauseButton(sender: AnyObject) {
         generator?.playPause()
-    }
+}
     
     //-
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
