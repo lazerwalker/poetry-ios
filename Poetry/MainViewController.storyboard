@@ -80,8 +80,8 @@ We suggest you explore the park freely, letting both your mind and your feet wan
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEz-3x-k9n">
-                                <frame key="frameInset" minX="77" minY="476" width="221" height="49"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <frame key="frameInset" minX="57" minY="476" width="241" height="49"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                 <state key="normal" title="Directions to Fort Mason"/>
                                 <connections>
                                     <action selector="didTapDirectionsButton:" destination="K4b-jn-rVp" eventType="touchUpInside" id="vRk-vE-jfE"/>
