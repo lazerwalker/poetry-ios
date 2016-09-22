@@ -39,10 +39,9 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
         generator?.calculator.locationSensor.onLocationChange = { (location) in
             if self.generator!.calculator.locationSensor.isInsideFortMason() {
                 self.showedWarning = false
-//                if (!self.generator!.running) {
-//                    self.generator?.play()
-//                }
+                self.playPauseButton.hidden = false
             } else {
+                self.playPauseButton.hidden = true
                 if (!self.showedWarning) {
                     let alert = UIAlertController(title: "You're not in Fort Mason!", message: "Computational Flâneur is a site-specific experience. To take part, you need to be at Fort Mason in San Francisco, CA.", preferredStyle: .Alert)
                     let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) in
