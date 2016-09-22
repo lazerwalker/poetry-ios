@@ -51,6 +51,9 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
         let storyboard = UIStoryboard(name: "DebugViewController", bundle: NSBundle.mainBundle())
         if let debugVC = storyboard.instantiateInitialViewController() as? DebugViewController {
             debugVC.generator = self.generator
+            debugVC.completionBlock = {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
             self.presentViewController(debugVC, animated: true, completion: nil)
         }
 

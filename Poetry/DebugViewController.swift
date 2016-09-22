@@ -8,10 +8,13 @@ class DebugViewController: UIViewController, MKMapViewDelegate {
 
     var userPin:MKPointAnnotation?
 
+    var completionBlock:((Void) -> Void)?
+
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var primetextLabel: UILabel!
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -111,5 +114,10 @@ class DebugViewController: UIViewController, MKMapViewDelegate {
         generator?.start()
     }
 
+    @IBAction func didTapDoneButton(sender: AnyObject) {
+        if let cb = completionBlock {
+            cb()
+        }
+    }
 }
 
