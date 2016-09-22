@@ -41,15 +41,15 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
                 if (!self.showedWarning) {
                     let alert = UIAlertController(title: "You're not in Fort Mason!", message: "Computational Flâneur is a site-specific experience. To take part, you need to be at Fort Mason in San Francisco, CA.", preferredStyle: .Alert)
 
+                    let ok = UIAlertAction(title: "OK", style: .Cancel, handler: { (action) in
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    })
+                    alert.addAction(ok)
+                    
                     let directions = UIAlertAction(title: "Get Directions", style: .Default) {
                         (_) in self.showMaps()
                     }
                     alert.addAction(directions)
-
-                    let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) in
-                        self.dismissViewControllerAnimated(true, completion: nil)
-                    })
-                    alert.addAction(ok)
 
                     self.presentViewController(alert, animated: true, completion: nil)
                     self.showedWarning = true
