@@ -55,7 +55,7 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
                         }
                     })
                     alert.addAction(directions)
-                    
+
                     let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) in
                         self.dismissViewControllerAnimated(true, completion: nil)
                     })
