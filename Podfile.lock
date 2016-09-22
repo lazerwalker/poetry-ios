@@ -1,12 +1,33 @@
 PODS:
   - Alamofire (3.5.0)
   - ForecastIO (2.1.1)
+  - IntentKit (0.7.3):
+    - IntentKit/Core (= 0.7.3)
+    - IntentKit/Facebook (= 0.7.3)
+    - IntentKit/GPlus (= 0.7.3)
+    - IntentKit/Mail (= 0.7.3)
+    - IntentKit/Maps (= 0.7.3)
+    - IntentKit/Twitter (= 0.7.3)
+  - IntentKit/Core (0.7.3):
+    - MWLayoutHelpers
+  - IntentKit/Facebook (0.7.3):
+    - IntentKit/Core
+  - IntentKit/GPlus (0.7.3):
+    - IntentKit/Core
+  - IntentKit/Mail (0.7.3):
+    - IntentKit/Core
+  - IntentKit/Maps (0.7.3):
+    - IntentKit/Core
+  - IntentKit/Twitter (0.7.3):
+    - IntentKit/Core
   - Keys (1.0.0)
+  - MWLayoutHelpers (1.1.0)
   - SQLite.swift (0.10.1)
 
 DEPENDENCIES:
   - Alamofire (~> 3.4)
   - ForecastIO (~> 2.1)
+  - IntentKit (~> 0.7)
   - Keys (from `Pods/CocoaPodsKeys`)
   - SQLite.swift (~> 0.10)
 
@@ -17,9 +38,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
   ForecastIO: a195c8ec7bd3f23ed856fce1bbf2f141abc45dc8
+  IntentKit: 7a8af5b98093773105241b335d747d2f00886caf
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
+  MWLayoutHelpers: 8af2eedae30fe06b75106b7be28b9fee1298512a
   SQLite.swift: 6a6e4b034efc317ce4e203b6af2d3024fee2b570
 
-PODFILE CHECKSUM: 3c7e32776ca2ddcc2fb661e7ec20f60fb92e81ce
+PODFILE CHECKSUM: df5e4140051549154e8a961cbb32965410d06969
 
 COCOAPODS: 1.0.1

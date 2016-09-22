@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 import MapKit
 import SafariServices
+import IntentKit
 
 class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewControllerDelegate {
     @IBOutlet weak var mapView: MKMapView!
@@ -44,6 +45,17 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
                 self.playPauseButton.hidden = true
                 if (!self.showedWarning) {
                     let alert = UIAlertController(title: "You're not in Fort Mason!", message: "Computational Flâneur is a site-specific experience. To take part, you need to be at Fort Mason in San Francisco, CA.", preferredStyle: .Alert)
+
+                    let directions = UIAlertAction(title: "Get Directions", style: .Default, handler: { (action) in
+                        let handler = INKMapsHandler()
+                        if let location = self.generator?.calculator.locationSensor.currentLocation() {
+                            let coordString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
+                            let dirs = handler.directionsFrom(coordString, to: "Fort Mason")
+                            dirs.presentModally()
+                        }
+                    })
+                    alert.addAction(directions)
+                    
                     let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) in
                         self.dismissViewControllerAnimated(true, completion: nil)
                     })
