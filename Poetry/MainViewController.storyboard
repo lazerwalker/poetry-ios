@@ -33,6 +33,18 @@
                                     <action selector="didTapDebugButton:" destination="K4b-jn-rVp" eventType="touchUpInside" id="Fwq-xe-UVh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxk-iG-UPt">
+                                <string key="text">Computational Flâneur is a generative poetry walk.
+
+As you wander through Fort Mason, your phone will create poetry for you based on where you go, how quickly you move, and other factors. 
+
+These poems are just for you. If you have a walking companion, their experience will be different. You'll want headphones.
+
+We suggest you explore the park freely, letting both your mind and your feet wander. </string>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="made for" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KB2-0Q-14g">
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -67,18 +79,14 @@
                                     <action selector="didTapPlayPauseButton:" destination="K4b-jn-rVp" eventType="touchUpInside" id="8re-su-b2d"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxk-iG-UPt">
-                                <string key="text">Computational Flâneur is a generative poetry walk.
-
-As you wander through Fort Mason, your phone will create poetry for you based on where you go, how quickly you move, and other factors. 
-
-These poems are just for you. If you have a walking companion, their experience will be different. You'll want headphones.
-
-We suggest you explore the park freely, letting both your mind and your feet wander. </string>
-                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEz-3x-k9n">
+                                <frame key="frameInset" minX="77" minY="476" width="221" height="49"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                <state key="normal" title="Directions to Fort Mason"/>
+                                <connections>
+                                    <action selector="didTapDirectionsButton:" destination="K4b-jn-rVp" eventType="touchUpInside" id="vRk-vE-jfE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -89,8 +97,10 @@ We suggest you explore the park freely, letting both your mind and your feet wan
                             <constraint firstItem="zsC-L2-DBF" firstAttribute="leading" secondItem="KB2-0Q-14g" secondAttribute="trailing" constant="4" id="FOh-J2-7KD"/>
                             <constraint firstItem="Gxp-5d-d1s" firstAttribute="centerY" secondItem="NfP-zl-iEV" secondAttribute="centerY" id="Flt-wL-btV"/>
                             <constraint firstItem="Y6i-Jb-LW9" firstAttribute="centerX" secondItem="FUF-3R-fCp" secondAttribute="centerX" id="GdZ-lx-0lu"/>
+                            <constraint firstItem="fEz-3x-k9n" firstAttribute="centerY" secondItem="FUF-3R-fCp" secondAttribute="centerY" multiplier="1.5" id="Ien-ih-6xL"/>
                             <constraint firstItem="Gxp-5d-d1s" firstAttribute="trailing" secondItem="FUF-3R-fCp" secondAttribute="trailingMargin" id="JEO-V9-1UO"/>
                             <constraint firstItem="ElS-mY-IWA" firstAttribute="leading" secondItem="FUF-3R-fCp" secondAttribute="leading" id="Spw-J7-BMf"/>
+                            <constraint firstItem="fEz-3x-k9n" firstAttribute="centerX" secondItem="FUF-3R-fCp" secondAttribute="centerX" id="Yp9-y2-VRW"/>
                             <constraint firstItem="cxk-iG-UPt" firstAttribute="trailing" secondItem="FUF-3R-fCp" secondAttribute="trailingMargin" constant="-12" id="ZEU-bO-dsT"/>
                             <constraint firstItem="zsC-L2-DBF" firstAttribute="centerY" secondItem="KB2-0Q-14g" secondAttribute="centerY" id="eW8-hX-hHQ"/>
                             <constraint firstAttribute="trailing" secondItem="ElS-mY-IWA" secondAttribute="trailing" id="gva-IR-Ro6"/>
@@ -103,6 +113,7 @@ We suggest you explore the park freely, letting both your mind and your feet wan
                     </view>
                     <connections>
                         <outlet property="debugButton" destination="tbf-dq-1Sh" id="jII-So-jcV"/>
+                        <outlet property="directionsButton" destination="fEz-3x-k9n" id="wPP-hC-Cgr"/>
                         <outlet property="mapView" destination="ElS-mY-IWA" id="NVw-bj-Fwd"/>
                         <outlet property="playPauseButton" destination="Y6i-Jb-LW9" id="5i6-Wv-bAh"/>
                     </connections>

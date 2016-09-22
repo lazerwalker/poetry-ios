@@ -8,7 +8,8 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var debugButton: UIButton!
     @IBOutlet weak var playPauseButton: UIButton!
-
+    @IBOutlet weak var directionsButton: UIButton!
+    
     var generator:PoetryGenerator?
     var showedWarning = false
 
@@ -27,33 +28,22 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
         let region = MKCoordinateRegion(center: fortMason, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         mapView.setRegion(region, animated: false)
 
-        generator?.onChangePlayStatus = { (status) in
-            if (status == .Paused || status == .Stopped ) {
-                self.playPauseButton.setImage(UIImage(named:"Play"), forState: .Normal)
-                self.playPauseButton.setTitle("Play", forState: .Normal)
-            } else if status == .Playing {
-                self.playPauseButton.setImage(UIImage(named:"Pause"), forState: .Normal)
-                self.playPauseButton.setTitle("Pause", forState: .Normal)
-            }
-        }
+        generator?.onChangePlayStatus = updatePlayButton
 
         generator?.calculator.locationSensor.addLocationHandler() { (location) in
             if self.generator!.calculator.locationSensor.isInsideFortMason() {
                 self.showedWarning = false
                 self.playPauseButton.hidden = false
+                self.directionsButton.hidden = true
             } else {
                 self.playPauseButton.hidden = true
+                self.directionsButton.hidden = false
                 if (!self.showedWarning) {
                     let alert = UIAlertController(title: "You're not in Fort Mason!", message: "Computational Flâneur is a site-specific experience. To take part, you need to be at Fort Mason in San Francisco, CA.", preferredStyle: .Alert)
 
-                    let directions = UIAlertAction(title: "Get Directions", style: .Default, handler: { (action) in
-                        let handler = INKMapsHandler()
-                        if let location = self.generator?.calculator.locationSensor.currentLocation() {
-                            let coordString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
-                            let dirs = handler.directionsFrom(coordString, to: "Fort Mason")
-                            dirs.presentModally()
-                        }
-                    })
+                    let directions = UIAlertAction(title: "Get Directions", style: .Default) {
+                        (_) in self.showMaps()
+                    }
                     alert.addAction(directions)
 
                     let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) in
@@ -65,6 +55,24 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
                     self.showedWarning = true
                 }
             }
+        }
+    }
+
+    func updatePlayButton(status:PlayStatus) {
+        if (status == .Paused || status == .Stopped ) {
+            self.playPauseButton.setImage(UIImage(named:"Play"), forState: .Normal)
+            self.playPauseButton.setTitle("Play", forState: .Normal)
+        } else if status == .Playing {
+            self.playPauseButton.setImage(UIImage(named:"Pause"), forState: .Normal)
+            self.playPauseButton.setTitle("Pause", forState: .Normal)
+        }
+    }
+
+    func showMaps() {
+        let handler = INKMapsHandler()
+        if let location = self.generator?.calculator.locationSensor.currentLocation() {
+            let coordString = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
+            handler.directionsFrom(coordString, to: "Fort Mason").presentModally()
         }
     }
 
@@ -88,6 +96,10 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
         }
     }
 
+    @IBAction func didTapDirectionsButton(sender: AnyObject) {
+        showMaps()
+    }
+
     @IBAction func didTapCOAPButton(sender: AnyObject) {
         if let url = NSURL(string: "http://comeoutandplaysf.org") {
             let webView = SFSafariViewController(URL: url)
@@ -98,8 +110,8 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
 
     @IBAction func didTapPlayPauseButton(sender: AnyObject) {
         generator?.playPause()
-}
-    
+    }
+
     //-
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
         self.dismissViewControllerAnimated(true, completion: nil)
