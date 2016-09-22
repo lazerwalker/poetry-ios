@@ -111,7 +111,7 @@ class DebugViewController: UIViewController, MKMapViewDelegate {
 
     //-
     @IBAction func didTapForceStart(sender: AnyObject) {
-        generator?.start()
+        generator?.play()
     }
 
     @IBAction func didTapDoneButton(sender: AnyObject) {

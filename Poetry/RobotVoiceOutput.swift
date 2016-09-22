@@ -5,9 +5,12 @@ import MediaPlayer
 class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
     let synthesizer = AVSpeechSynthesizer()
 
+    var delegate:Playable?
     var onComplete:(()->Void)?
 
     override init() {
+        //playableDelegate = delegate
+        
         super.init()
         synthesizer.delegate = self
         synthesizer.pauseSpeakingAtBoundary(.Word)
@@ -33,8 +36,20 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
     }
 
     //-
+    func updatePlayStatus(state:PlayStatus) {
+        switch(state) {
+        case .Playing:
+            self.synthesizer.continueSpeaking()
+        case .Paused:
+            self.synthesizer.pauseSpeakingAtBoundary(.Immediate)
+        case .Stopped:
+            self.synthesizer.stopSpeakingAtBoundary(.Immediate)
+        }
+    }
+
+    //-
     func continuePlaying(event:MPRemoteCommandEvent?) -> MPRemoteCommandHandlerStatus {
-        if (self.synthesizer.continueSpeaking()) {
+        if delegate?.play() == .Playing {
             return .Success
         } else {
             return .CommandFailed
@@ -42,7 +57,7 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
     }
 
     func pausePlaying(event:MPRemoteCommandEvent?) -> MPRemoteCommandHandlerStatus {
-        if (self.synthesizer.pauseSpeakingAtBoundary(.Word)) {
+        if delegate?.pause() == .Paused {
             return .Success
         } else {
             return .CommandFailed
@@ -50,7 +65,7 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
     }
 
     func stopPlaying(event:MPRemoteCommandEvent?) -> MPRemoteCommandHandlerStatus {
-        if (self.synthesizer.stopSpeakingAtBoundary(.Word)) {
+        if delegate?.stop() == .Stopped {
             return .Success
         } else {
             return .CommandFailed
@@ -58,12 +73,11 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
     }
 
     func playPause(event:MPRemoteCommandEvent?) -> MPRemoteCommandHandlerStatus {
-        if (self.synthesizer.speaking && !self.synthesizer.paused) {
-            return pausePlaying(event)
-        } else if (self.synthesizer.paused) {
-            return continuePlaying(event)
+        if self.delegate?.playPause() != .Stopped {
+            return .Success
+        } else {
+            return .NoActionableNowPlayingItem
         }
-        return .NoActionableNowPlayingItem
     }
 
     //-

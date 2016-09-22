@@ -26,12 +26,22 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
         let region = MKCoordinateRegion(center: fortMason, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         mapView.setRegion(region, animated: false)
 
+        generator?.onChangePlayStatus = { (status) in
+            if (status == .Paused || status == .Stopped ) {
+                self.playPauseButton.setImage(UIImage(named:"Play"), forState: .Normal)
+                self.playPauseButton.setTitle("Play", forState: .Normal)
+            } else if status == .Playing {
+                self.playPauseButton.setImage(UIImage(named:"Pause"), forState: .Normal)
+                self.playPauseButton.setTitle("Pause", forState: .Normal)
+            }
+        }
+
         generator?.calculator.locationSensor.onLocationChange = { (location) in
             if self.generator!.calculator.locationSensor.isInsideFortMason() {
                 self.showedWarning = false
-                if (!self.generator!.running) {
-                    self.generator?.start()
-                }
+//                if (!self.generator!.running) {
+//                    self.generator?.play()
+//                }
             } else {
                 if (!self.showedWarning) {
                     let alert = UIAlertController(title: "You're not in Fort Mason!", message: "Computational Flâneur is a site-specific experience. To take part, you need to be at Fort Mason in San Francisco, CA.", preferredStyle: .Alert)
@@ -76,16 +86,7 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
     }
 
     @IBAction func didTapPlayPauseButton(sender: AnyObject) {
-        if let generator = generator {
-            // true = is playing
-            if (generator.playPause()) {
-                playPauseButton.setImage(UIImage(named:"Play"), forState: .Normal)
-                playPauseButton.setTitle("Play", forState: .Normal)
-            } else {
-                playPauseButton.setImage(UIImage(named:"Pause"), forState: .Normal)
-                playPauseButton.setTitle("Pause", forState: .Normal)
-            }
-        }
+        generator?.playPause()
     }
     
     //-

@@ -1,42 +1,104 @@
 import Foundation
 
-class PoetryGenerator {
+enum PlayStatus {
+    case Playing
+    case Paused
+    case Stopped
+}
+
+protocol Playable {
+    func currentStatus() -> PlayStatus
+
+    func play() -> PlayStatus
+    func stop() -> PlayStatus
+    func pause() -> PlayStatus
+    func playPause() -> PlayStatus
+}
+
+class PoetryGenerator : Playable {
     let calculator:InputCalculator
     let voice = RobotVoiceOutput()
 
-    var running:Bool = false
+    var running:Bool = false {
+        didSet {
+            statusDidUpdate()
+        }
+    }
+    var paused:Bool = false {
+        didSet {
+            statusDidUpdate()
+        }
+    }
 
     var onSpeak:(Stanza -> Void)?
+    var onChangePlayStatus:((PlayStatus) -> Void)?
 
     init(calculator:InputCalculator) {
         self.calculator = calculator
+        self.voice.delegate = self
         voice.onComplete = prepareNextStanza
     }
 
-    func start() {
+    //-
+    // Playable
+
+    func currentStatus() -> PlayStatus {
+        if running && paused {
+            return .Paused
+        } else if running && !paused {
+            return .Playing
+        } else {
+            return .Stopped
+        }
+    }
+    func play() -> PlayStatus {
         running = true
+        paused = false
         calculator.locationSensor.start()
 
         if let stanza = StanzaFetcher.fetch(calculator.nextInput()) {
             speak(stanza)
         }
+
+        return currentStatus()
     }
 
-    func stop() {
+    func stop() -> PlayStatus {
+        paused = false
         running = false
         calculator.locationSensor.stop()
+
+        return currentStatus()
     }
 
-    // True = is currently playing
-    // TODO: Make this an enum or something
-    func playPause() -> Bool {
-        voice.playPause(nil)
-        return !voice.synthesizer.paused
+    func pause() -> PlayStatus {
+        paused = true
+        return currentStatus()
+    }
+
+    func playPause() -> PlayStatus {
+        switch(currentStatus()) {
+        case .Playing:
+            pause()
+        case .Paused:
+            play()
+        case .Stopped:
+            play()
+        }
+        return currentStatus()
+    }
+
+    func statusDidUpdate() {
+        let status = currentStatus()
+        voice.updatePlayStatus(status)
+        if let cb = onChangePlayStatus {
+            cb(status)
+        }
     }
 
     //-
     func prepareNextStanza() {
-        if self.running {
+        if currentStatus() == .Playing {
             var speed = self.calculator.locationSensor.currentSpeed()
             if speed == 0 { speed = 0.6 }
 
