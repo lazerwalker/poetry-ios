@@ -50,10 +50,10 @@ class PoetryGenerator : Playable {
                 title = region.title {
                 if title != self.previousRegion?.title {
                     print("New region!", title)
-                    self.bgAudio.playSoundscape(title)
+                    self.bgAudio.fadeInSoundscape(title)
 
                     if let previousTitle = self.previousRegion?.title {
-                        self.bgAudio.stopSoundscape(previousTitle)
+                        self.bgAudio.fadeOutSoundscape(previousTitle)
                     }
                 }
                 self.previousRegion = region
