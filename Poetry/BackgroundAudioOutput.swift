@@ -20,46 +20,46 @@ class BackgroundAudioOutput {
     }
 
     //-
-    func playSoundscape(name:String) {
+    func playSoundscape(sound:Audio) {
         // TODO: Try to reuse existing node?
-        if let node = self.playSound(name) {
+        if let node = self.playSound(sound.name) {
             startEngineIfNotRunning()
             node.volume = 1.0
             node.play()
 
-            nodes[name] = node
+            nodes[sound.name] = node
         }
     }
 
-    func stopSoundscape(name:String) {
-        if let node = nodes[name] {
+    func stopSoundscape(sound:Audio) {
+        if let node = nodes[sound.name] {
             node.stop()
         }
     }
 
-    func fadeInSoundscape(name:String) {
-        if let node = self.playSound(name) {
+    func fadeInSoundscape(sound:Audio) {
+        if let node = self.playSound(sound.name) {
             startEngineIfNotRunning()
             node.play()
 
             NSTimer.scheduledTimerWithTimeInterval(0.1, repeats: true) { (timer) in
                 node.volume = node.volume + 0.05
-                if node.volume >= 1.0 {
+                if node.volume >= sound.volume {
                     timer.invalidate()
                 }
             }
 
-            nodes[name] = node
+            nodes[sound.name] = node
         }
     }
 
-    func fadeOutSoundscape(name:String) {
-        if let node = nodes[name] {
+    func fadeOutSoundscape(sound:Audio) {
+        if let node = nodes[sound.name] {
             NSTimer.scheduledTimerWithTimeInterval(0.1, repeats: true) { (timer) in
                 node.volume = node.volume - 0.05
                 if node.volume <= 0 {
                     timer.invalidate()
-                    self.stopSoundscape(name)
+                    self.stopSoundscape(sound)
                 }
             }
         }

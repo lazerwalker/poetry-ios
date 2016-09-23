@@ -16,6 +16,22 @@ protocol Playable {
     func playPause() -> PlayStatus
 }
 
+struct Audio {
+    let name:String
+    let volume:Float
+
+    init(name:String, volume:Float) {
+        self.name = name
+        self.volume = volume
+    }
+}
+
+let audioMapping = [
+    "piers": Audio(name: "piers", volume: 0.8),
+    "great meadow": Audio(name: "great meadow", volume: 1.0),
+    "startBG": Audio(name:"soloCello", volume: 0.2)
+]
+
 // TODO: This class, and InputCalculator, are clearly factored wrong.
 // Figure out the proper abstraction.
 
@@ -23,6 +39,8 @@ class PoetryGenerator : Playable {
     let calculator:InputCalculator
     let voice = RobotVoiceOutput()
     let bgAudio = BackgroundAudioOutput()
+
+    var isFirstStart = true
 
     var previousRegion:MKPolygon?
 
@@ -49,12 +67,14 @@ class PoetryGenerator : Playable {
             if self.currentStatus() != .Playing { return }
             if let region = self.calculator.locationSensor.currentRegion(),
                 let title = region.title {
-                if title != self.previousRegion?.title {
-                    print("New region!", title)
-                    self.bgAudio.fadeInSoundscape(title)
+                if title != self.previousRegion?.title,
+                    let audio = audioMapping[title] {
 
-                    if let previousTitle = self.previousRegion?.title {
-                        self.bgAudio.fadeOutSoundscape(previousTitle)
+                    self.bgAudio.fadeInSoundscape(audio)
+
+                    if let previousTitle = self.previousRegion?.title,
+                        previousAudio = audioMapping[previousTitle] {
+                        self.bgAudio.fadeOutSoundscape(previousAudio)
                     }
                 }
                 self.previousRegion = region
@@ -86,9 +106,17 @@ class PoetryGenerator : Playable {
             bgAudio.playAll()
         } else {
             if let region = self.calculator.locationSensor.currentRegion(),
-                let title = region.title {
-                self.bgAudio.playSoundscape(title)
+                let title = region.title,
+                let audio = audioMapping[title] {
+                self.bgAudio.playSoundscape(audio)
                 self.previousRegion = region
+            }
+        }
+
+        if isFirstStart {
+            isFirstStart = false
+            if let start = audioMapping["startBG"] {
+                bgAudio.fadeInSoundscape(start)
             }
         }
 
