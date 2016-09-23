@@ -19,17 +19,21 @@ protocol Playable {
 struct Audio {
     let name:String
     let volume:Float
+    let regionSpecific:Bool
 
-    init(name:String, volume:Float) {
+    init(name:String, volume:Float, regionSpecific:Bool = false) {
         self.name = name
         self.volume = volume
+        self.regionSpecific = regionSpecific
     }
 }
 
 let audioMapping = [
-    "piers": Audio(name: "piers", volume: 0.8),
-    "great meadow": Audio(name: "great meadow", volume: 1.0),
-    "startBG": Audio(name:"soloCello", volume: 0.2)
+    "piers": Audio(name: "piers", volume: 0.8, regionSpecific: true),
+    "great meadow": Audio(name: "great meadow", volume: 1.0, regionSpecific: true),
+    "man statue": Audio(name: "great meadow", volume: 1.0, regionSpecific: true),
+    "totem statue": Audio(name: "great meadow", volume: 1.0, regionSpecific: true),
+    "startBG": Audio(name:"soloCello", volume: 0.2, regionSpecific: false)
 ]
 
 // TODO: This class, and InputCalculator, are clearly factored wrong.
@@ -67,15 +71,11 @@ class PoetryGenerator : Playable {
             if self.currentStatus() != .Playing { return }
             if let region = self.calculator.locationSensor.currentRegion(),
                 let title = region.title {
+
                 if title != self.previousRegion?.title,
                     let audio = audioMapping[title] {
 
                     self.bgAudio.fadeInSoundscape(audio)
-
-                    if let previousTitle = self.previousRegion?.title,
-                        previousAudio = audioMapping[previousTitle] {
-                        self.bgAudio.fadeOutSoundscape(previousAudio)
-                    }
                 }
                 self.previousRegion = region
             }
@@ -108,7 +108,7 @@ class PoetryGenerator : Playable {
             if let region = self.calculator.locationSensor.currentRegion(),
                 let title = region.title,
                 let audio = audioMapping[title] {
-                self.bgAudio.playSoundscape(audio)
+                self.bgAudio.fadeInSoundscape(audio)
                 self.previousRegion = region
             }
         }
