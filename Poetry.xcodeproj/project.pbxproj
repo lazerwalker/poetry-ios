@@ -14,6 +14,8 @@
 		C6215A651D7F76DD00BA230E /* poetry.db in Resources */ = {isa = PBXBuildFile; fileRef = C6215A621D7F729600BA230E /* poetry.db */; };
 		C62374C81D53AAA700B444FD /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C62374C71D53AAA700B444FD /* config.plist */; };
 		C62374CA1D53AAD400B444FD /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62374C91D53AAD400B444FD /* Config.swift */; };
+		C629F04E1D95A7C500D83828 /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = C629F04D1D95A7C500D83828 /* Audio */; };
+		C629F0501D95A88100D83828 /* BackgroundAudioOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C629F04F1D95A88100D83828 /* BackgroundAudioOutput.swift */; };
 		C63F5CAD1D78D58000E8A41D /* StanzaFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F5CAC1D78D58000E8A41D /* StanzaFetcher.swift */; };
 		C63F5CAF1D78D65000E8A41D /* Stanza.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F5CAE1D78D65000E8A41D /* Stanza.swift */; };
 		C65288FE1D92E3300079314F /* PoetryGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65288FD1D92E3300079314F /* PoetryGenerator.swift */; };
@@ -41,6 +43,8 @@
 		C6215A631D7F72ED00BA230E /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		C62374C71D53AAA700B444FD /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		C62374C91D53AAD400B444FD /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		C629F04D1D95A7C500D83828 /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
+		C629F04F1D95A88100D83828 /* BackgroundAudioOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAudioOutput.swift; sourceTree = "<group>"; };
 		C63F5CAC1D78D58000E8A41D /* StanzaFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StanzaFetcher.swift; sourceTree = "<group>"; };
 		C63F5CAE1D78D65000E8A41D /* Stanza.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stanza.swift; sourceTree = "<group>"; };
 		C65288FD1D92E3300079314F /* PoetryGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoetryGenerator.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 		C6DEAE851D5129A400C2A14D /* Poetry */ = {
 			isa = PBXGroup;
 			children = (
+				C629F04D1D95A7C500D83828 /* Audio */,
 				C6215A621D7F729600BA230E /* poetry.db */,
 				C66D42F51D7A362000794BB4 /* regions.json */,
 				C66D42F71D7A364D00794BB4 /* Geofence.swift */,
@@ -114,7 +119,6 @@
 				C6DEAE8F1D5129A400C2A14D /* LaunchScreen.storyboard */,
 				C6DEAE921D5129A400C2A14D /* Info.plist */,
 				C6DEAE981D5188DA00C2A14D /* NetworkInterface.swift */,
-				C6DEAE9A1D51941400C2A14D /* RobotVoiceOutput.swift */,
 				C62374C71D53AAA700B444FD /* config.plist */,
 				C62374C91D53AAD400B444FD /* Config.swift */,
 				C63F5CAC1D78D58000E8A41D /* StanzaFetcher.swift */,
@@ -125,6 +129,8 @@
 				C65288FD1D92E3300079314F /* PoetryGenerator.swift */,
 				C65288FF1D92E53F0079314F /* MainViewController.storyboard */,
 				C65289011D92E6150079314F /* MainViewController.swift */,
+				C6DEAE9A1D51941400C2A14D /* RobotVoiceOutput.swift */,
+				C629F04F1D95A88100D83828 /* BackgroundAudioOutput.swift */,
 			);
 			path = Poetry;
 			sourceTree = "<group>";
@@ -221,6 +227,7 @@
 				C6DEAE8C1D5129A400C2A14D /* DebugViewController.storyboard in Resources */,
 				C66D42F61D7A362000794BB4 /* regions.json in Resources */,
 				C65289001D92E53F0079314F /* MainViewController.storyboard in Resources */,
+				C629F04E1D95A7C500D83828 /* Audio in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +291,7 @@
 				C6DEAE891D5129A400C2A14D /* DebugViewController.swift in Sources */,
 				C6B0CDCC1D529D2C003E784F /* TimeSensor.swift in Sources */,
 				C6DEAE991D5188DA00C2A14D /* NetworkInterface.swift in Sources */,
+				C629F0501D95A88100D83828 /* BackgroundAudioOutput.swift in Sources */,
 				C6215A611D7DE94100BA230E /* StanzaInput.swift in Sources */,
 				C65289021D92E6150079314F /* MainViewController.swift in Sources */,
 				C6DEAE9D1D52915E00C2A14D /* LocationSensor.swift in Sources */,

@@ -1,4 +1,5 @@
 import Foundation
+import MapKit
 
 enum PlayStatus {
     case Playing
@@ -15,9 +16,15 @@ protocol Playable {
     func playPause() -> PlayStatus
 }
 
+// TODO: This class, and InputCalculator, are clearly factored wrong.
+// Figure out the proper abstraction.
+
 class PoetryGenerator : Playable {
     let calculator:InputCalculator
     let voice = RobotVoiceOutput()
+    let bgAudio = BackgroundAudioOutput()
+
+    var previousRegion:MKPolygon?
 
     var running:Bool = false {
         didSet {
@@ -37,6 +44,21 @@ class PoetryGenerator : Playable {
         self.calculator = calculator
         self.voice.delegate = self
         voice.onComplete = prepareNextStanza
+
+        calculator.locationSensor.addLocationHandler { (location) in
+            if let region = self.calculator.locationSensor.currentRegion(),
+                title = region.title {
+                if title != self.previousRegion?.title {
+                    print("New region!", title)
+                    self.bgAudio.playSoundscape(title)
+
+                    if let previousTitle = self.previousRegion?.title {
+                        self.bgAudio.stopSoundscape(previousTitle)
+                    }
+                }
+                self.previousRegion = region
+            }
+        }
     }
 
     //-
