@@ -5,7 +5,21 @@ class BackgroundAudioOutput {
     let engine = AVAudioEngine()
 
     var nodes:[String:AVAudioPlayerNode] = [:]
+    var hasOutput:Bool = false
 
+    func pauseAll() {
+        engine.pause()
+    }
+
+    func playAll() {
+        startEngineIfNotRunning()
+    }
+
+    func stopAll() {
+        engine.stop()
+    }
+
+    //-
     func playSoundscape(name:String) {
         // TODO: Try to reuse existing node?
         if let node = self.playSound(name) {
@@ -20,12 +34,6 @@ class BackgroundAudioOutput {
     func stopSoundscape(name:String) {
         if let node = nodes[name] {
             node.stop()
-        }
-    }
-
-    func pauseSoundscape(name:String) {
-        if let node = nodes[name] {
-            node.pause()
         }
     }
 
@@ -59,7 +67,7 @@ class BackgroundAudioOutput {
 
     //-
     func startEngineIfNotRunning() {
-        if (!engine.running) {
+        if (!engine.running && hasOutput) {
             do {
                 try engine.start()
             } catch let e as NSError {
@@ -82,6 +90,8 @@ class BackgroundAudioOutput {
                 engine.connect(node, to: engine.mainMixerNode, format: buffer.format)
 
                 node.scheduleBuffer(buffer, atTime: nil, options: .Loops, completionHandler: nil)
+
+                self.hasOutput = true
 
                 return node
             } else {

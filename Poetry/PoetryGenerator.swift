@@ -46,8 +46,9 @@ class PoetryGenerator : Playable {
         voice.onComplete = prepareNextStanza
 
         calculator.locationSensor.addLocationHandler { (location) in
+            if self.currentStatus() != .Playing { return }
             if let region = self.calculator.locationSensor.currentRegion(),
-                title = region.title {
+                let title = region.title {
                 if title != self.previousRegion?.title {
                     print("New region!", title)
                     self.bgAudio.fadeInSoundscape(title)
@@ -81,19 +82,33 @@ class PoetryGenerator : Playable {
             speak(stanza)
         }
 
+        if (bgAudio.hasOutput) {
+            bgAudio.playAll()
+        } else {
+            if let region = self.calculator.locationSensor.currentRegion(),
+                let title = region.title {
+                self.bgAudio.playSoundscape(title)
+                self.previousRegion = region
+            }
+        }
+
         return currentStatus()
     }
 
     func stop() -> PlayStatus {
         paused = false
         running = false
+
         calculator.locationSensor.stop()
+        bgAudio.stopAll()
 
         return currentStatus()
     }
 
     func pause() -> PlayStatus {
         paused = true
+        bgAudio.pauseAll()
+
         return currentStatus()
     }
 
