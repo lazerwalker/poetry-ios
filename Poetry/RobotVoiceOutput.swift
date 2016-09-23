@@ -13,7 +13,6 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
         
         super.init()
         synthesizer.delegate = self
-        synthesizer.pauseSpeakingAtBoundary(.Word)
 
         do {
             let audioSession = AVAudioSession.sharedInstance()
@@ -85,7 +84,8 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
     func speak(text:String, speed:Double) {
         let utterance = AVSpeechUtterance(string:text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-IE")
-
+        utterance.volume = 0.7
+        
         func randomNumberNear(start:Float, within:Float) -> Float {
             let modifier = (Float(arc4random_uniform(UInt32(within * 100 * 2)))/100.0 - within)
             return start + modifier
