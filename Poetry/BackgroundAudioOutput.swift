@@ -29,7 +29,7 @@ class BackgroundAudioOutput {
     }
 
     //-
-    func playSound(file:String, withExtension ext:String = "wav") -> AVAudioPlayerNode? {
+    func playSound(file:String, withExtension ext:String = "mp3") -> AVAudioPlayerNode? {
         do {
             if let url = NSBundle.mainBundle().URLForResource(file, withExtension: ext, subdirectory: "Audio") {
                 let file = try AVAudioFile(forReading: url)
