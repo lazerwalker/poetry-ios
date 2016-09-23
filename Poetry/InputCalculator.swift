@@ -7,16 +7,14 @@ let primetext = Expression<String>("primetext")
 
 struct InputCalculator {
     let locationSensor:LocationSensor
-    let weatherSensor:WeatherSensor
     let timeSensor:TimeSensor
 
     var failureCount = 0
 
     var previousPrimetext:String
 
-    init(location:LocationSensor, weather:WeatherSensor, time:TimeSensor) {
+    init(location:LocationSensor, time:TimeSensor) {
         self.locationSensor = location
-        self.weatherSensor = weather
         self.timeSensor = time
 
         previousPrimetext = ""

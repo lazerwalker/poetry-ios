@@ -30,7 +30,6 @@
 		C6DEAE991D5188DA00C2A14D /* NetworkInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE981D5188DA00C2A14D /* NetworkInterface.swift */; };
 		C6DEAE9B1D51941400C2A14D /* RobotVoiceOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE9A1D51941400C2A14D /* RobotVoiceOutput.swift */; };
 		C6DEAE9D1D52915E00C2A14D /* LocationSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE9C1D52915E00C2A14D /* LocationSensor.swift */; };
-		C6DEAEA01D5297F900C2A14D /* WeatherSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE9F1D5297F900C2A14D /* WeatherSensor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +59,6 @@
 		C6DEAE981D5188DA00C2A14D /* NetworkInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkInterface.swift; sourceTree = "<group>"; };
 		C6DEAE9A1D51941400C2A14D /* RobotVoiceOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RobotVoiceOutput.swift; sourceTree = "<group>"; };
 		C6DEAE9C1D52915E00C2A14D /* LocationSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSensor.swift; sourceTree = "<group>"; };
-		C6DEAE9F1D5297F900C2A14D /* WeatherSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherSensor.swift; sourceTree = "<group>"; };
 		C91C3CA4989DBA653D87CDD7 /* Pods_Poetry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poetry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				C6DEAE9C1D52915E00C2A14D /* LocationSensor.swift */,
-				C6DEAE9F1D5297F900C2A14D /* WeatherSensor.swift */,
 				C6B0CDCB1D529D2C003E784F /* TimeSensor.swift */,
 			);
 			name = Sensors;
@@ -283,7 +280,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C63F5CAF1D78D65000E8A41D /* Stanza.swift in Sources */,
-				C6DEAEA01D5297F900C2A14D /* WeatherSensor.swift in Sources */,
 				C65288FE1D92E3300079314F /* PoetryGenerator.swift in Sources */,
 				C6DEAE891D5129A400C2A14D /* DebugViewController.swift in Sources */,
 				C6B0CDCC1D529D2C003E784F /* TimeSensor.swift in Sources */,

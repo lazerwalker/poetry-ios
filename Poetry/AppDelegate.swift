@@ -4,7 +4,6 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var generator:PoetryGenerator?
-    var weatherSensor = WeatherSensor()
     var locationSensor = LocationSensor()
     var timeSensor = TimeSensor()
 
@@ -15,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let session = AVAudioSession.sharedInstance()
         try! session.setCategory(AVAudioSessionCategoryPlayback)       
 
-        let calculator = InputCalculator(location: locationSensor, weather: weatherSensor, time: timeSensor)
+        let calculator = InputCalculator(location: locationSensor, time: timeSensor)
         let generator = PoetryGenerator(calculator: calculator)
 
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
