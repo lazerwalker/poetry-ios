@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>PoetrySnapshot.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C6AAC0DA1D996918001CF4A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C6DEAE821D5129A400C2A14D</key>
 		<dict>
 			<key>primary</key>

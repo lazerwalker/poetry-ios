@@ -23,6 +23,7 @@ class LocationSensor : NSObject, CLLocationManagerDelegate {
 
     func start() {
         running = true
+
         let status = CLLocationManager.authorizationStatus()
         if status == .NotDetermined {
             manager.requestAlwaysAuthorization()

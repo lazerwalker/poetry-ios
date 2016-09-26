@@ -56,6 +56,11 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
                 }
             }
         }
+
+        #if DEBUG
+            generator?.fakeLocation()
+            debugButton.hidden = false
+        #endif
     }
 
     func updatePlayButton(status:PlayStatus) {

@@ -23,6 +23,8 @@
 		C65289021D92E6150079314F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65289011D92E6150079314F /* MainViewController.swift */; };
 		C66D42F61D7A362000794BB4 /* regions.json in Resources */ = {isa = PBXBuildFile; fileRef = C66D42F51D7A362000794BB4 /* regions.json */; };
 		C66D42F81D7A364D00794BB4 /* Geofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66D42F71D7A364D00794BB4 /* Geofence.swift */; };
+		C6AAC0DE1D996919001CF4A1 /* PoetrySnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AAC0DD1D996919001CF4A1 /* PoetrySnapshot.swift */; };
+		C6AAC0E61D996924001CF4A1 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6AAC0E51D996924001CF4A1 /* SnapshotHelper.swift */; };
 		C6B0CDCC1D529D2C003E784F /* TimeSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B0CDCB1D529D2C003E784F /* TimeSensor.swift */; };
 		C6DEAE871D5129A400C2A14D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE861D5129A400C2A14D /* AppDelegate.swift */; };
 		C6DEAE891D5129A400C2A14D /* DebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE881D5129A400C2A14D /* DebugViewController.swift */; };
@@ -33,6 +35,16 @@
 		C6DEAE9B1D51941400C2A14D /* RobotVoiceOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE9A1D51941400C2A14D /* RobotVoiceOutput.swift */; };
 		C6DEAE9D1D52915E00C2A14D /* LocationSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DEAE9C1D52915E00C2A14D /* LocationSensor.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C6AAC0E01D996919001CF4A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C6DEAE7B1D5129A400C2A14D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C6DEAE821D5129A400C2A14D;
+			remoteInfo = Poetry;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		44DCFC7635F2187A7D0E4B90 /* Pods-Poetry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poetry.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Poetry/Pods-Poetry.debug.xcconfig"; sourceTree = "<group>"; };
@@ -52,6 +64,10 @@
 		C65289011D92E6150079314F /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C66D42F51D7A362000794BB4 /* regions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = regions.json; sourceTree = "<group>"; };
 		C66D42F71D7A364D00794BB4 /* Geofence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geofence.swift; sourceTree = "<group>"; };
+		C6AAC0DB1D996918001CF4A1 /* PoetrySnapshot.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PoetrySnapshot.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6AAC0DD1D996919001CF4A1 /* PoetrySnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoetrySnapshot.swift; sourceTree = "<group>"; };
+		C6AAC0DF1D996919001CF4A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6AAC0E51D996924001CF4A1 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		C6B0CDCB1D529D2C003E784F /* TimeSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSensor.swift; sourceTree = "<group>"; };
 		C6DEAE831D5129A400C2A14D /* Poetry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poetry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6DEAE861D5129A400C2A14D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +83,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C6AAC0D81D996918001CF4A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C6DEAE801D5129A400C2A14D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -86,10 +109,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C6AAC0DC1D996918001CF4A1 /* PoetrySnapshot */ = {
+			isa = PBXGroup;
+			children = (
+				C6AAC0E51D996924001CF4A1 /* SnapshotHelper.swift */,
+				C6AAC0DD1D996919001CF4A1 /* PoetrySnapshot.swift */,
+				C6AAC0DF1D996919001CF4A1 /* Info.plist */,
+			);
+			path = PoetrySnapshot;
+			sourceTree = "<group>";
+		};
 		C6DEAE7A1D5129A400C2A14D = {
 			isa = PBXGroup;
 			children = (
 				C6DEAE851D5129A400C2A14D /* Poetry */,
+				C6AAC0DC1D996918001CF4A1 /* PoetrySnapshot */,
 				C6DEAE841D5129A400C2A14D /* Products */,
 				E71D65A187EC6D18AE8D5A05 /* Pods */,
 				29CDC0E6C07A12C93B75FE04 /* Frameworks */,
@@ -100,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				C6DEAE831D5129A400C2A14D /* Poetry.app */,
+				C6AAC0DB1D996918001CF4A1 /* PoetrySnapshot.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,6 +191,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C6AAC0DA1D996918001CF4A1 /* PoetrySnapshot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C6AAC0E41D996919001CF4A1 /* Build configuration list for PBXNativeTarget "PoetrySnapshot" */;
+			buildPhases = (
+				C6AAC0D71D996918001CF4A1 /* Sources */,
+				C6AAC0D81D996918001CF4A1 /* Frameworks */,
+				C6AAC0D91D996918001CF4A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C6AAC0E11D996919001CF4A1 /* PBXTargetDependency */,
+			);
+			name = PoetrySnapshot;
+			productName = PoetrySnapshot;
+			productReference = C6AAC0DB1D996918001CF4A1 /* PoetrySnapshot.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		C6DEAE821D5129A400C2A14D /* Poetry */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C6DEAE951D5129A400C2A14D /* Build configuration list for PBXNativeTarget "Poetry" */;
@@ -182,10 +235,16 @@
 		C6DEAE7B1D5129A400C2A14D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Mike Lazer-Walker";
 				TargetAttributes = {
+					C6AAC0DA1D996918001CF4A1 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 48WB56AE4K;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C6DEAE821D5129A400C2A14D;
+					};
 					C6DEAE821D5129A400C2A14D = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 48WB56AE4K;
@@ -211,11 +270,19 @@
 			projectRoot = "";
 			targets = (
 				C6DEAE821D5129A400C2A14D /* Poetry */,
+				C6AAC0DA1D996918001CF4A1 /* PoetrySnapshot */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C6AAC0D91D996918001CF4A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C6DEAE811D5129A400C2A14D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -246,7 +313,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D2F1B54AB6E1706264E6F834 /* [CP] Embed Pods Frameworks */ = {
@@ -282,6 +349,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C6AAC0D71D996918001CF4A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C6AAC0DE1D996919001CF4A1 /* PoetrySnapshot.swift in Sources */,
+				C6AAC0E61D996924001CF4A1 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C6DEAE7F1D5129A400C2A14D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,6 +383,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C6AAC0E11D996919001CF4A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C6DEAE821D5129A400C2A14D /* Poetry */;
+			targetProxy = C6AAC0E01D996919001CF4A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		C6DEAE8A1D5129A400C2A14D /* DebugViewController.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -327,6 +411,41 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C6AAC0E21D996919001CF4A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = 48WB56AE4K;
+				INFOPLIST_FILE = PoetrySnapshot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lazerwalker.PoetrySnapshot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Poetry;
+			};
+			name = Debug;
+		};
+		C6AAC0E31D996919001CF4A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEVELOPMENT_TEAM = 48WB56AE4K;
+				INFOPLIST_FILE = PoetrySnapshot/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lazerwalker.PoetrySnapshot;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Poetry;
+			};
+			name = Release;
+		};
 		C6DEAE931D5129A400C2A14D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -425,6 +544,7 @@
 				INFOPLIST_FILE = Poetry/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lazerwalker.Poetry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 2.3;
@@ -441,6 +561,7 @@
 				INFOPLIST_FILE = Poetry/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lazerwalker.Poetry;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 2.3;
@@ -450,6 +571,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C6AAC0E41D996919001CF4A1 /* Build configuration list for PBXNativeTarget "PoetrySnapshot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C6AAC0E21D996919001CF4A1 /* Debug */,
+				C6AAC0E31D996919001CF4A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C6DEAE7E1D5129A400C2A14D /* Build configuration list for PBXProject "Poetry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
