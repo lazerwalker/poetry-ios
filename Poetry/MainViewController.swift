@@ -117,6 +117,18 @@ class MainViewController : UIViewController, MKMapViewDelegate, SFSafariViewCont
         generator?.playPause()
     }
 
+    @IBAction func didTapAcknowledgements(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "AcknowledgementsViewController", bundle: NSBundle.mainBundle())
+        if let nav = storyboard.instantiateInitialViewController() as? UINavigationController {
+            if let vc = nav.topViewController as? AcknowledgementsViewController {
+                vc.completionBlock = {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                }
+            }
+            self.presentViewController(nav, animated: true, completion: nil)
+        }
+    }
+    
     //-
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
         self.dismissViewControllerAnimated(true, completion: nil)
