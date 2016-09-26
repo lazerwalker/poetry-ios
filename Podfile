@@ -4,7 +4,7 @@ use_frameworks!
 
 target 'Poetry' do
     pod 'Alamofire', '~> 3.4'
-    pod 'IntentKit', git: 'https://github.com/intentkit/intentkit.git'
+    pod 'IntentKit', '~> 0.7'
     pod 'SQLite.swift', '~> 0.10'
 end
 
