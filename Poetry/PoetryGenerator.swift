@@ -115,9 +115,6 @@ class PoetryGenerator : Playable {
 
         if isFirstStart {
             isFirstStart = false
-            if let start = audioMapping["startBG"] {
-                bgAudio.fadeInSoundscape(start)
-            }
         }
 
         return currentStatus()
