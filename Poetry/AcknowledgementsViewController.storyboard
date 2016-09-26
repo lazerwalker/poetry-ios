@@ -86,7 +86,7 @@
                             <tableViewSection headerTitle="Pretrained Neural Networks" id="rXW-rn-Kk0">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="nN3-bt-9pa" detailTextLabel="f1R-yI-Id1" style="IBUITableViewCellStyleSubtitle" id="nlz-1E-MO4">
-                                        <rect key="frame" x="0.0" y="265" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="264" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nlz-1E-MO4" id="0EB-l2-doO">
                                             <frame key="frameInset" width="342" height="43"/>
@@ -114,7 +114,7 @@
                             <tableViewSection headerTitle="Images" id="9KQ-Ek-N16">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="ZeI-HC-LgV" detailTextLabel="DVE-4K-pNQ" style="IBUITableViewCellStyleSubtitle" id="s30-lf-XnS">
-                                        <rect key="frame" x="0.0" y="366" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="364" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s30-lf-XnS" id="HLH-dO-bua">
                                             <frame key="frameInset" width="342" height="43"/>
@@ -138,7 +138,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="JWP-Mt-gfe" detailTextLabel="6OP-AN-Tev" style="IBUITableViewCellStyleSubtitle" id="YVp-qk-Eig">
-                                        <rect key="frame" x="0.0" y="410" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="408" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YVp-qk-Eig" id="R1B-f4-vLt">
                                             <frame key="frameInset" width="342" height="43"/>
@@ -166,7 +166,7 @@
                             <tableViewSection headerTitle="Sounds" id="09R-ad-s3g">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="FaP-sA-iS7" detailTextLabel="b14-TL-NTx" style="IBUITableViewCellStyleSubtitle" id="Jzb-C4-Wai">
-                                        <rect key="frame" x="0.0" y="511" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="508" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jzb-C4-Wai" id="wBn-wg-dLF">
                                             <frame key="frameInset" width="342" height="43"/>
@@ -190,7 +190,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="l1P-l8-s42" detailTextLabel="LPJ-wd-fQZ" style="IBUITableViewCellStyleSubtitle" id="gbx-2d-iAC">
-                                        <rect key="frame" x="0.0" y="555" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="552" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbx-2d-iAC" id="5la-eA-ZAG">
                                             <frame key="frameInset" width="342" height="43"/>
@@ -214,7 +214,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="qpV-Hr-yqO" detailTextLabel="BQA-DW-Rhg" style="IBUITableViewCellStyleSubtitle" id="IGe-C2-lQa">
-                                        <rect key="frame" x="0.0" y="599" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="596" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IGe-C2-lQa" id="UD6-yo-FXY">
                                             <frame key="frameInset" width="342" height="43"/>
@@ -238,7 +238,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="WGa-Pc-bqZ" detailTextLabel="XJa-CU-rmN" style="IBUITableViewCellStyleSubtitle" id="2Bu-0C-pJi">
-                                        <rect key="frame" x="0.0" y="643" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="640" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Bu-0C-pJi" id="4SV-j6-Wyc">
                                             <frame key="frameInset" width="342" height="43"/>
@@ -262,7 +262,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="cBw-2z-wTJ" detailTextLabel="Z32-A5-aTH" style="IBUITableViewCellStyleSubtitle" id="s8I-kJ-Xau">
-                                        <rect key="frame" x="0.0" y="687" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="684" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s8I-kJ-Xau" id="3DC-2v-hTn">
                                             <frame key="frameInset" width="342" height="43"/>
