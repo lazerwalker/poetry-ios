@@ -17,10 +17,10 @@
                         <viewControllerLayoutGuide type="bottom" id="Vc7-B0-oK5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FUF-3R-fCp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.34999999999999998" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ElS-mY-IWA">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.34999999999999998" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ElS-mY-IWA">
                                 <frame key="frameInset" width="1000" height="1000"/>
                                 <connections>
                                     <outlet property="delegate" destination="K4b-jn-rVp" id="TqG-gB-aCo"/>
@@ -103,14 +103,14 @@ We suggest you explore the park freely, letting both your mind and your feet wan
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Vc7-B0-oK5" firstAttribute="top" secondItem="Gxp-5d-d1s" secondAttribute="bottom" constant="55" id="4XF-qZ-Gep"/>
-                            <constraint firstItem="Y6i-Jb-LW9" firstAttribute="centerY" secondItem="FUF-3R-fCp" secondAttribute="centerY" multiplier="1.5" id="5TV-Op-Urq"/>
+                            <constraint firstItem="Y6i-Jb-LW9" firstAttribute="centerY" secondItem="FUF-3R-fCp" secondAttribute="centerY" multiplier="1.5" constant="-10" id="5TV-Op-Urq"/>
                             <constraint firstItem="cxk-iG-UPt" firstAttribute="centerY" secondItem="FUF-3R-fCp" secondAttribute="centerY" multiplier="0.7" id="Aal-ya-Vst"/>
                             <constraint firstItem="Gxp-5d-d1s" firstAttribute="leading" secondItem="NfP-zl-iEV" secondAttribute="trailing" constant="4" id="Elp-dG-4jd"/>
                             <constraint firstItem="zsC-L2-DBF" firstAttribute="leading" secondItem="KB2-0Q-14g" secondAttribute="trailing" constant="4" id="FOh-J2-7KD"/>
                             <constraint firstItem="Gxp-5d-d1s" firstAttribute="centerY" secondItem="NfP-zl-iEV" secondAttribute="centerY" id="Flt-wL-btV"/>
                             <constraint firstItem="Y6i-Jb-LW9" firstAttribute="centerX" secondItem="FUF-3R-fCp" secondAttribute="centerX" id="GdZ-lx-0lu"/>
                             <constraint firstItem="S8J-Nt-2hk" firstAttribute="centerY" secondItem="KqA-Sn-qg7" secondAttribute="centerY" id="IEe-L6-v1R"/>
-                            <constraint firstItem="fEz-3x-k9n" firstAttribute="centerY" secondItem="FUF-3R-fCp" secondAttribute="centerY" multiplier="1.5" id="Ien-ih-6xL"/>
+                            <constraint firstItem="fEz-3x-k9n" firstAttribute="centerY" secondItem="FUF-3R-fCp" secondAttribute="centerY" multiplier="1.5" constant="-10" id="Ien-ih-6xL"/>
                             <constraint firstItem="Gxp-5d-d1s" firstAttribute="trailing" secondItem="FUF-3R-fCp" secondAttribute="trailingMargin" id="JEO-V9-1UO"/>
                             <constraint firstItem="S8J-Nt-2hk" firstAttribute="leading" secondItem="KqA-Sn-qg7" secondAttribute="trailing" constant="8" id="NxL-Wi-xHW"/>
                             <constraint firstItem="ElS-mY-IWA" firstAttribute="leading" secondItem="FUF-3R-fCp" secondAttribute="leading" id="Spw-J7-BMf"/>
