@@ -34,8 +34,8 @@ let audioMapping = [
     "man statue": Audio(name: "great meadow", volume: 1.0, regionSpecific: true),
     "totem statue": Audio(name: "great meadow", volume: 1.0, regionSpecific: true),
     "community garden": Audio(name: "summerGarden", volume: 1.0, regionSpecific: true),
-    "walkway": Audio(name: "summerGarden", volume: 1.0, regionSpecific: true),
-    "chapel": Audio(name: "morningHasBroken", volume: 0.6, regionSpecific: true),
+    "walkway": Audio(name: "summerGarden", volume: 0.8, regionSpecific: true),
+    "chapel": Audio(name: "morningHasBroken", volume: 0.4, regionSpecific: true),
     "alley": Audio(name: "piccadillyCircus", volume: 1.0, regionSpecific: true),
     "startBG": Audio(name:"soloCello", volume: 0.2, regionSpecific: false)
 ]
