@@ -11,7 +11,7 @@ class AcknowledgementsViewController : UITableViewController, SFSafariViewContro
             let url = NSURL(string: subtitle) {
                 let vc = SFSafariViewController(URL: url)
                 vc.delegate = self
-                self.presentViewController(vc, animated: true, completion: nil)
+                self.navigationController?.pushViewController(vc, animated: true)
         }
 
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -25,6 +25,6 @@ class AcknowledgementsViewController : UITableViewController, SFSafariViewContro
     
     //-
     func safariViewControllerDidFinish(controller: SFSafariViewController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
 }
