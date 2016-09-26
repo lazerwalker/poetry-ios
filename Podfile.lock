@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (3.5.0)
   - IntentKit (0.7.5):
     - IntentKit/Core (= 0.7.5)
     - IntentKit/Facebook (= 0.7.5)
@@ -24,7 +23,6 @@ PODS:
   - SQLite.swift (0.10.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.4)
   - IntentKit (~> 0.7)
   - Keys (from `Pods/CocoaPodsKeys`)
   - SQLite.swift (~> 0.10)
@@ -34,12 +32,11 @@ EXTERNAL SOURCES:
     :path: Pods/CocoaPodsKeys
 
 SPEC CHECKSUMS:
-  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
   IntentKit: 8a571042a944d82372770a564bc77d98dc84e283
   Keys: 9c35bf00f612ee1d48556f4a4b9b4551e224e90f
   MWLayoutHelpers: 8af2eedae30fe06b75106b7be28b9fee1298512a
   SQLite.swift: 6a6e4b034efc317ce4e203b6af2d3024fee2b570
 
-PODFILE CHECKSUM: 1c4f96705c582408278ba2391163bc1c3829111c
+PODFILE CHECKSUM: 9c5eabc98e20198771c2a1f8687207ccbfe73eee
 
 COCOAPODS: 1.1.0.rc.2
