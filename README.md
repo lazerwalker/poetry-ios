@@ -26,3 +26,27 @@ Currently, this requires you to be running my poetry server, which isn't on GitH
 ## License
 
 This project is licensed under the MIT License. For more information, see the LICENSE file.
+
+
+## Acknowledgements
+
+
+### Open-Source Libraries
+* IntentKit: https://github.com/intentkit/IntentKit
+* SQLite.swift: https://github.com/stephencelis/SQLite.swift
+
+
+### Pre-Trained Neural Networks
+* NeuralSnap: https://github.com/rossgoodwin/neuralsnap
+
+
+### Images
+* Golden Gate Bridge: https://thenounproject.com/term/golden-gate-bridge/355437
+* Person: https://thenounproject.com/term/person/117151/
+
+### Sounds
+* AMB Playground Kids Playing: http://freesound.org/people/conleec/sounds/159735/
+* Morning Has Broken: http://freesound.org/people/acclivity/sounds/21199/
+* Piccadilly Circus Ambience: http://freesound.org/people/habbis92/sounds/240233/
+* Shore: http://freesound.org/people/xDimebagx/sounds/210249/
+* Summer Evening In My Garden: http://freesound.org/people/acclivity/sounds/30832/
