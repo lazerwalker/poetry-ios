@@ -59,7 +59,8 @@ struct InputCalculator {
         if let db = DB.connectionToPoetryDB() {
             let query = table
                 .filter(location == loc)
-                .filter(primetext != self.previousPrimetext)
+                // TODO: this bafflingly works for local builds, but won't let me archive. Kill it for now.
+                // .filter(primetext != self.previousPrimetext)
                 .order(Expression<Int>.random())
                 .limit(1)
 
