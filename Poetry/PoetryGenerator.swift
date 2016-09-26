@@ -76,10 +76,15 @@ class PoetryGenerator : Playable {
             if let region = self.calculator.locationSensor.currentRegion(),
                 let title = region.title {
 
-                if title != self.previousRegion?.title,
-                    let audio = audioMapping[title] {
-
-                    self.bgAudio.fadeInSoundscape(audio)
+                if title != self.previousRegion?.title {
+                    if let audio = audioMapping[title] {
+                        self.bgAudio.fadeInSoundscape(audio)
+                    } else {
+                        if let previousTitle = self.previousRegion?.title,
+                            let previousAudio = audioMapping[previousTitle] {
+                            self.bgAudio.fadeOutSoundscape(previousAudio)
+                        }
+                    }
                 }
                 self.previousRegion = region
             }
