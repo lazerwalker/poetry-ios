@@ -26,11 +26,16 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
         commandCenter.stopCommand.addTargetWithHandler(stopPlaying)
         commandCenter.pauseCommand.addTargetWithHandler(pausePlaying)
         commandCenter.togglePlayPauseCommand.addTargetWithHandler(playPause)
-        
+
+        let image = MPMediaItemArtwork(boundsSize: CGSizeMake(1024, 1024)) { (size) -> UIImage in
+            return UIImage(named: "lockscreen")!
+        }
+
         let nowPlaying = MPNowPlayingInfoCenter.defaultCenter()
         nowPlaying.nowPlayingInfo = [
             MPMediaItemPropertyTitle: "Computational Flaneur",
             MPMediaItemPropertyArtist: "Mike Lazer-Walker",
+            MPMediaItemPropertyArtwork: image
         ]
     }
 
