@@ -1,27 +1,17 @@
-# Generative Poetry Walk
+# Computational Flâneur
 
 [![CI Status](http://img.shields.io/travis/lazerwalker/poetry-ios.svg?style=flat)](https://travis-ci.org/lazerwalker/poetry-ios)
 
 
-This is a work-in-progress experiment for a generative location-based poetry walk. It combines a generative poetry engine (currently using [char-rnn](https://github.com/karpathy/char-rnn) running on a remote server) with speech synthesis, music synthesis and various sensor data as inputs.
+_Computational Flanêur_ is site-specific generative poetry walk built for Come Out and Play SF 2016. It combines a generative poetry engine (currently using [char-rnn](https://github.com/karpathy/char-rnn and a [pre-trained mode](https://github.com/rossgoodwin/neuralsnap) by Ross Goodwin) with speech synthesis, music synthesis and various sensor data as inputs.
 
-More info coming soon.
+This'll be updated soon with a link to the app itself, which will be a free download on the iOS App Store.
+
 
 ## Installation
 
-1. Clone this repo
+The `Pods` folder is checked in. You should be able to just clone this, open `Poetry.xcworkspace`, and knock yourself out from there.
 
-2 `bundle install` (can skip if you already have both `cocoapods` and `cocoapods-keys` installed)
-
-3. `bundle exec pod install` (can omit `bundle exec` if not using Bundler)
-
-4. `cp Poetry/config.plist.example Poetry/config.plist`
-
-5. Swap your server URL in for `serverRoot` value in the plist.
-
-6. Open `Poetry.xcworkspace`.
-
-Currently, this requires you to be running my poetry server, which isn't on GitHub yet (for relatively mundane reasons).
 
 ## License
 
