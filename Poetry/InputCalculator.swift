@@ -39,16 +39,7 @@ struct InputCalculator {
 
     //-
     func speedToTemperature(speed:Double) -> Int {
-        var choices:[Int] = []
-        if (speed <= 1.0) {
-            choices = [40]
-        } else if (speed <= 1.6) {
-            choices = [40, 50]
-        } else if (speed <= 2.0) {
-            choices = [50, 60]
-        } else if (speed > 2.0) {
-            choices = [60]
-        }
+        var choices:[Int] = [40, 50, 60]
         let idx = Int(arc4random_uniform(UInt32(choices.count)))
         return choices[idx]
     }
