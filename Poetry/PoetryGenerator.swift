@@ -29,14 +29,14 @@ struct Audio {
 }
 
 let audioMapping = [
-    "piers": Audio(name: "piers", volume: 0.8, regionSpecific: true),
+    "piers": Audio(name: "piers", volume: 0.2, regionSpecific: true),
     "great meadow": Audio(name: "great meadow", volume: 1.0, regionSpecific: true),
     "man statue": Audio(name: "great meadow", volume: 1.0, regionSpecific: true),
     "totem statue": Audio(name: "great meadow", volume: 1.0, regionSpecific: true),
-    "community garden": Audio(name: "summerGarden", volume: 1.0, regionSpecific: true),
-    "walkway": Audio(name: "summerGarden", volume: 0.8, regionSpecific: true),
-    "chapel": Audio(name: "morningHasBroken", volume: 0.4, regionSpecific: true),
-    "alley": Audio(name: "piccadillyCircus", volume: 1.0, regionSpecific: true),
+    "community garden": Audio(name: "summerGarden", volume: 0.4, regionSpecific: true),
+    "walkway": Audio(name: "summerGarden", volume: 0.4, regionSpecific: true),
+    "chapel": Audio(name: "morningHasBroken", volume: 0.3, regionSpecific: true),
+    "alley": Audio(name: "piccadillyCircus", volume: 0.4, regionSpecific: true),
     "startBG": Audio(name:"soloCello", volume: 0.2, regionSpecific: false)
 ]
 
