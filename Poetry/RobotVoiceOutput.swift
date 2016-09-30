@@ -100,13 +100,7 @@ class RobotVoiceOutput:NSObject, AVSpeechSynthesizerDelegate {
 
         let rateSpread = (AVSpeechUtteranceMaximumSpeechRate - AVSpeechUtteranceMinimumSpeechRate) / 10
 
-        if speed >= 2.0 {
-            utterance.rate = randomNumberNear(AVSpeechUtteranceDefaultSpeechRate + rateSpread/2, within: rateSpread/2)
-        } else if speed <= 1.0 {
-            utterance.rate = randomNumberNear(AVSpeechUtteranceDefaultSpeechRate - rateSpread/2, within: rateSpread/2)
-        } else {
-            utterance.rate = randomNumberNear(AVSpeechUtteranceDefaultSpeechRate, within: rateSpread)
-        }
+        utterance.rate = randomNumberNear(AVSpeechUtteranceDefaultSpeechRate - rateSpread/2, within: rateSpread/2)
         
         print("Playing at pitch \(utterance.pitchMultiplier), rate \(utterance.rate)")
         synthesizer.speakUtterance(utterance)
